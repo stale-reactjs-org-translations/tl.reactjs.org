@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  app:
+    container_name: tl-reactjs-org
+    image: tl-reactjs-org:dev
+    build:
+      context: .
+    volumes:
+      - tl-reactjs-org:/app/node_modules
+      - .:/app
+    ports:
+      - 8000:8000
+
+volumes:
+  tl-reactjs-org:
