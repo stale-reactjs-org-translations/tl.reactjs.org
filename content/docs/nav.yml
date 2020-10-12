@@ -14,7 +14,7 @@
   isOrdered: true
   items:
     - id: hello-world
-      title: Hello World
+      title: Kamusta Mundo
     - id: introducing-jsx
       title: Introducing JSX
     - id: rendering-elements
