@@ -1,12 +1,12 @@
 ---
 id: hello-world
-title: Hello World
+title: Kamusta Mundo
 permalink: docs/hello-world.html
 prev: cdn-links.html
 next: introducing-jsx.html
 ---
 
-The smallest React example looks like this:
+Isang simpleng halimbawa ng React:
 
 ```js
 ReactDOM.render(
@@ -15,36 +15,33 @@ ReactDOM.render(
 );
 ```
 
-It displays a heading saying "Hello, world!" on the page.
+Sa pahinang ito ipinapakita ang isang heading na nagsasabing "Hello, world!"
 
 [](codepen://hello-world)
 
-Click the link above to open an online editor. Feel free to make some changes, and see how they affect the output. Most pages in this guide will have editable examples like this one.
+Pindutin ang link na nasa itaas para magbukas ng isang online editor. Huwag mag-atubiling gumawa ng ilang mga pagbabago at tignan kung papaano ito nakakaapekto sa resulta. Karamihan ng mga pahina sa gabay ay mayroong mga halimbawang pwedeng i-edit katulad nito.
 
+## Papaano Basahin ang Gabay na ito {#how-to-read-this-guide}
 
-## How to Read This Guide {#how-to-read-this-guide}
-
-In this guide, we will examine the building blocks of React apps: elements and components. Once you master them, you can create complex apps from small reusable pieces.
+Sa gabay na ito, pag-aaralan natin ang mga pundasyon ng mga React apps: elements at components. Kapag naging dalubhasa ka na sa mga ito, maaari ka nang gumawa ng mga komplikadong apps gamit ang mga maliliit na reusable na mga piraso.
 
 >Tip
 >
->This guide is designed for people who prefer **learning concepts step by step**. If you prefer to learn by doing, check out our [practical tutorial](/tutorial/tutorial.html). You might find this guide and the tutorial complementary to each other.
+>Ang gabay na ito ay ginawa para sa mga taong mas gusto **pag-aralan ang mga konsepto isa-isa**. Kung mas gusto mong matuto sa pamamagitan ng paggawa, pwede mong tignan ang aming [praktikal na tutorial](/tutorial/tutorial.html). Iyong mapapansin na ang gabay na ito at ang tutorial ay komplementaryo sa isa't isa.
 
-This is the first chapter in a step-by-step guide about main React concepts. You can find a list of all its chapters in the navigation sidebar. If you're reading this from a mobile device, you can access the navigation by pressing the button in the bottom right corner of your screen.
+Ito ang unang kabanata patungkol sa pinakamahalagang mga konsepto ng React. Ang mga listahan ng mga kabanata ay makikita sa navigation sidebar. Kung ikaw ay nagbabasa nito gamit ang iyong mobile device, ma-aaccess mo ang navigation sa pamamagitan ng pagpindot sa pindutan sa kanang ibaba ng iyong screen.
 
-Every chapter in this guide builds on the knowledge introduced in earlier chapters. **You can learn most of React by reading the “Main Concepts” guide chapters in the order they appear in the sidebar.** For example, [“Introducing JSX”](/docs/introducing-jsx.html) is the next chapter after this one.
+Ang bawat kabanata sa gabay na ito ay nagdadagdag ng kaalaman ukol sa mga naunang mga kabanata. **Madali mong matututunan ang React sa pamamagitan ng pagbasa sa mga kabanata ng "Main Concepts" ayon sa pagkakasunod-sunod nito sa sidebar.** Halimbawa, [“Introducing JSX”](/docs/introducing-jsx.html) ang kasunod na kabanata pagkatapos nito.
 
-## Knowledge Level Assumptions {#knowledge-level-assumptions}
+## Pagtukoy sa Antas ng Kaalaman {#knowledge-level-assumptions}
 
-React is a JavaScript library, and so we'll assume you have a basic understanding of the JavaScript language. **If you don't feel very confident, we recommend [going through a JavaScript tutorial](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) to check your knowledge level** and enable you to follow along this guide without getting lost. It might take you between 30 minutes and an hour, but as a result you won't have to feel like you're learning both React and JavaScript at the same time.
+Ang React ay isang JavaScript library kung kaya't aming ina-assume na may sapat kang kaalaman sa JavaScript. **Kung may agam-agam at pagdududa, inirerekumenda naming [subukan mo munang magbasa ng isang JavaScript tutorial](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) para masuri ang iyong kaalaman** at makasunod sa gabay na ito nang hindi naguguluhan. Maari kang abutin ng mula sa 30 minuto hanggang sa isang oras, ngunit bilang resulta hindi mo mararamdaman na nag-aaral ka ng React at JavaScript nang sabay.
 
->Note
+>Paalala
 >
->This guide occasionally uses some of the newer JavaScript syntax in the examples. If you haven't worked with JavaScript in the last few years, [these three points](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) should get you most of the way.
+>Ang gabay na ito ay madalas gumagamit ng mga bagong JavaScript syntax sa mga halimbawa. Kung hindi ka na gumagamit ng JavaScript sa mga nakalipas na mga taon, [
+ang tatlong puntong ito](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) ay makakatulong para makasunod ka sa mga susunod na aralin.
 
+## Halina't Magsimula! {#lets-get-started}
 
-## Let's Get Started! {#lets-get-started}
-
-Keep scrolling down, and you'll find the link to the [next chapter of this guide](/docs/introducing-jsx.html) right before the website footer.
-
-
+Patuloy na mag-scroll pababa at iyong makikita ang link sa [susunod na kabanata](/docs/introducing-jsx.html) bago mismo ang footer ng website.

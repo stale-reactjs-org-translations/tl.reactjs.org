@@ -60,7 +60,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-code-repls',
             options: {
-              defaultText: '<b>Try it on CodePen</b>',
+              defaultText: '<b>Subukan sa CodePen</b>',
               directory: `${__dirname}/examples/`,
               target: '_blank',
               codepen: {
