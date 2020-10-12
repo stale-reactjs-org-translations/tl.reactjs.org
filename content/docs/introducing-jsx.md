@@ -14,15 +14,15 @@ const element = <h1>Hello, world!</h1>;
 
 Ang syntax na ito ay hindi isang string o HTML.
 
-Ito ay tinatawag na JSX, at isa itong halimbawa ng syntax extension sa JavaScript. Inirerekomenda naming gamitin ito kasama ng React para bigyan ng porma ang UI. Maihahalintulad ang JSX sa isang template language, ngunit maaari rin itong ipaghalo sa iba pang JavaScript na code.
+Ito ay tinatawag na JSX, at isa itong halimbawa ng syntax extension sa JavaScript. Ipinapayo naming gamitin ito kasama ng React para bigyan ng porma ang UI. Maihahalintulad ang JSX sa isang template language, ngunit maaari rin itong ipaghalo sa iba pang JavaScript na code.
 
-Mula sa JSX, makabubuo tayo ng mga React "element". Ipapakita sa [susunod na paksa](/docs/rendering-elements.html) ang pag-render ng JSX papunta sa DOM. Samantala, nasa sumusunod na bahagi ang mga halimbawa ng JSX para masimulan ang paggamit nito.
+Mula sa JSX, makabubuo tayo ng mga React "element". Ipapakita sa [susunod na kabanata](/docs/rendering-elements.html) ang pag-render ng JSX papunta sa DOM. Samantala, nasa sumusunod na bahagi ang mga halimbawa ng JSX para masimulan ang paggamit nito.
 
 ### Bakit JSX? {#bakit-jsx}
 
 Kaakibat ng pagre-render ang iba pang mga ginagawa sa UI--kinakatawan ng React ang ganitong ideya. Halimbawa nito ang paghahandle sa mga event, ang mga pabago-bago sa state, at ang paghahanda sa pagpapakita ng mga datos. 
 
-Imbis na paghiwalayin ang markup at logic sa magkabukod na file, [pinaghihiwalay ng React ang mga concern](https://en.wikipedia.org/wiki/Separation_of_concerns) gamit ang mga "component" na naglalaman ng parehong markup at logic, nang hindi masyadong kailangang dumependende sa iba pang mga file. Babalikan natin ang pagtalakay sa mga component sa [susunod na paksa](/docs/components-and-props.html), ngunit kung pakiramdam mo na mukhang di tama ang paglalagay ng markup sa JS, baka magbago ang isip mo sa [panayam na ito](https://www.youtube.com/watch?v=x7cQ3mrcKaY). 
+Imbis na paghiwalayin ang markup at logic sa magkabukod na file, [pinaghihiwalay ng React ang mga concern](https://en.wikipedia.org/wiki/Separation_of_concerns) gamit ang mga "component" na naglalaman ng parehong markup at logic, nang hindi masyadong kailangang dumependende sa iba pang mga file. Babalikan natin ang pagtalakay sa mga component sa [susunod na kabanata](/docs/components-and-props.html), ngunit kung pakiramdam mo na mukhang di tama ang paglalagay ng markup sa JS, baka magbago ang isip mo sa [panayam na ito](https://www.youtube.com/watch?v=x7cQ3mrcKaY). 
 
 [Hindi kailangan ng JSX sa React](/docs/react-without-jsx.html), ngunit malaking tulong ito sa maraming tao para magkaroon ng ideya ukol sa hitsura ng UI sa loob ng JavaScript code. Maipapakita rin ng React ang mga error at warning nang malinaw at madaling basahin.
 
@@ -178,8 +178,8 @@ const element = {
 
 Ito ang mga "React element"--pwede mo silang isipin na detalye sa mga nakikita sa screen. Binabasa ng React ang ganitong mga object para mag-render ng DOM at gawin itong up-to-date.
 
-Ipapakita natin ang pag-render ng React element sa DOM sa [susunod na paksa](/docs/rendering-elements.html).
+Ipapakita natin ang pag-render ng React element sa DOM sa [susunod na kabanata](/docs/rendering-elements.html).
 
 >**Tip:**
 >
->Inirerekomenda na gamitin ang ["Babel" language definition](https://babeljs.io/docs/editors) para sa iyong editor, upang mahighlight nang tama ang iyong mga ES6 at JSX code.
+>Ipinapayo na gamitin ang ["Babel" language definition](https://babeljs.io/docs/editors) para sa iyong editor, upang mahighlight nang tama ang iyong mga ES6 at JSX code.
