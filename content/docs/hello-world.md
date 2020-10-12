@@ -37,7 +37,7 @@ Ang bawat kabanata sa gabay na ito ay nagdadagdag ng kaalaman ukol sa mga naunan
 
 Ang React ay isang JavaScript library kung kaya't aming ina-assume na may sapat kang kaalaman sa JavaScript. **Kung may agam-agam at pagdududa, inirerekumenda naming [subukan mo munang magbasa ng isang JavaScript tutorial](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) para masuri ang iyong kaalaman** at makasunod sa gabay na ito nang hindi naguguluhan. Maari kang abutin ng mula sa 30 minuto hanggang sa isang oras, ngunit bilang resulta hindi mo mararamdaman na nag-aaral ka ng React at JavaScript nang sabay.
 
->Tandaan
+>Paalala
 >
 >Ang gabay na ito ay madalas gumagamit ng mga bagong JavaScript syntax sa mga halimbawa. Kung hindi ka na gumagamit ng JavaScript sa mga nakalipas na mga taon, [
 ang tatlong puntong ito](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) ay makakatulong para makasunod ka sa mga susunod na aralin.
