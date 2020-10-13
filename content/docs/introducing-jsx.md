@@ -1,7 +1,7 @@
 ---
 id: introducing-jsx
 title: Pagpapakilala sa JSX
-permalink: docs/pagpapakilala-sa-jsx.html
+permalink: docs/introducing-jsx.html
 prev: hello-world.html
 next: rendering-elements.html
 ---
