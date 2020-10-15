@@ -1,6 +1,6 @@
 ---
 id: thinking-in-react
-title: Pag-iisip sa React
+title: Paano mag-isip sa React
 permalink: docs/thinking-in-react.html
 redirect_from:
   - 'blog/2013/11/05/thinking-in-react.html'
@@ -61,7 +61,7 @@ Ngayon na nalaman na natin ang mga components sa ating mock, ayusin na natin ang
 
 ## Ika-2 Hakbang: Gumawa ng Static Version sa React {#step-2-build-a-static-version-in-react}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Subukan sa Pen ang  <a href="https://codepen.io/gaearon/pen/BwWzwm">Pag-iisip sa React: Ika-2 Hakbang</a> sa <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Subukan sa Pen ang  <a href="https://codepen.io/gaearon/pen/BwWzwm">Paano mag-isip sa React: Ika-2 Hakbang</a> sa <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 Ngayon na mayroon ka nang component hierarchy, oras na para gawin ito sa iyong app. Ang pinakamadaling paraan ay bumuo ng version na tatanggap ng data model at irerender sa UI ngunit wala itong interactivity. Mas makakabuti na paghiwalayin ang mga prosesong ito dahil ang pagbuo ng static version ay nangangailangan ng maraming typing at kaunting pag-iisip, at ang pag-dagdag naman ng interactivity ay nangangailangan ng malalim na pag-iisip at kaunting pagta-type. Malalaman nating kung bakit.
@@ -126,15 +126,15 @@ Pasadahan natin ang pamamaraang ito sa ating application:
   * Mas makabuluhang kung ang filter text at checked value ay nasa `FilterableProductTable`
 
  
-Astig, ngayon ay napagdesisyuan na natin na ang state ay nasa `FilterableProductTable`. Una, idagdag ang instance property `this.state = {filterText: '', inStockOnly: false}` sa `constructor` ng `FilterableProductTable` para ipakita ang initial state ng iyong application. Pagkatapos, ipasa ang `filterText` at `inStockOnly` sa `ProductTable` at `SearchBar` bilang prop. Panghuli, gamiting ang mga props na ito para ifilter ang rows sa `ProductTable` at iset ang values ng form fields sa `SearchBar`.
+Astig, ngayon ay napagdesisyunan na natin na ang state ay nasa `FilterableProductTable`. Una, idagdag ang instance property `this.state = {filterText: '', inStockOnly: false}` sa `constructor` ng `FilterableProductTable` para ipakita ang initial state ng iyong application. Pagkatapos, ipasa ang `filterText` at `inStockOnly` sa `ProductTable` at `SearchBar` bilang prop. Panghuli, gamiting ang mga props na ito para ifilter ang rows sa `ProductTable` at iset ang values ng form fields sa `SearchBar`.
 
 Makikita mo na kung paano gumagana ang iyong application: iset ang `"ball"` sa `filterText` at i-refresh ang iyong app. Makikita mo na ang data table ay nag-update na ng tama.
 
 ## Ika-5 Hakbang: Pagdaragdag ng Inverse Data Flow {#step-5-add-inverse-data-flow}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Pag-iisip sa React: Ika-5 Hakbang" class="codepen">Subukan sa Pen ang <a href="https://codepen.io/gaearon/pen/LzWZvb">Pag-iisip sa React: Ikaw-5 Hakbang</a> sa <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Paano mag-isip sa React: Ika-5 Hakbang" class="codepen">Subukan sa Pen ang <a href="https://codepen.io/gaearon/pen/LzWZvb">Paano mag-isip sa React: Ikaw-5 Hakbang</a> sa <a href="https://codepen.io">CodePen</a>.</p>
 
-Sa ngayon, nabuo na nating ang app na nag-rerender ng tama gamit ang function ng props at ang state ang bumababa ng maayos sa hierarchy. Ngayon ay oras na para gawing ng data flow sa kasalungat na paraan: ang kailailalimang form components sa hierarchy ay kailangan i-update ag state sa `FilterableProductTable`.
+Sa ngayon, nabuo na natin ang app na nag-rerender ng tama gamit ang function ng props at ang state ang bumababa ng maayos sa hierarchy. Ngayon ay oras na para gawing ng data flow sa kasalungat na paraan: ang kailailalimang form components sa hierarchy ay kailangan i-update ag state sa `FilterableProductTable`.
 
 Ang React ay ginagawa ang ganitong paraan ng data flow upang tulungan ka na maintindihan kung paano gumaga ang iyong program, pero kailangan ng kaunting pagta-type kumpara sa tradisyunal na two-way data binding.
 
@@ -144,4 +144,4 @@ Isipin kung ano ang gusto nating mangyari. Nais nating masigurado na kapag binag
 
 ## At natapos din {#and-thats-it}
 
-Sana naman ay nagbigay ito sayo ng kaliwanagan kung paano mag-sip sa pagbuo ng components at application gamit ang React. Habang ito ay pinapa-type ka ng mas marami kumpara sa iyong nakagawian, tandaan na ang nababasang code ay mas higit pa kesa sa isinusulat, at mas madaling basahin ang modular, na explicit na code. Sa pagsisimula mo nang pagbuo ng malaking library ng components, mas lalo mong mapapahalagahan ang explicitness at modularity, at gamit ang konsepto ng code reuse, ang iyong code ay mas lalong magiging maiksi. :D
+Sana naman ay nagbigay ito sayo ng kaliwanagan kung paano mag-isip sa pagbuo ng components at application gamit ang React. Habang ito ay pinapa-type ka ng mas marami kumpara sa iyong nakagawian, tandaan na ang nababasang code, at mas madaling basahin ang modular, na explicit na code. Sa pagsisimula mo nang pagbuo ng malaking library ng components, mas lalo mong mapapahalagahan ang explicitness at modularity, at gamit ang konsepto ng code reuse, ang iyong code ay mas lalong magiging maiksi. :D
