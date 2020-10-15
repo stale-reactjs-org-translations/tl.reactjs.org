@@ -31,7 +31,7 @@ Ang ating JSON API ay magbabalik ng data tulad nito:
 ];
 ```
 
-## Ika-1 na Hakbang: Hatiin ang UI sa isang Component Hierarchy {#step-1-break-the-ui-into-a-component-hierarchy}
+## Ika-1 Hakbang: Hatiin ang UI sa isang Component Hierarchy {#step-1-break-the-ui-into-a-component-hierarchy}
 
 Ang una mong dapat gawin ay gumuhit ng mga kahon sa paligid ng bawat component (at subcomponent) sa mock at bigyan mo lahat ito ng pangalan. Kung ikaw ay may katuwang na designer, maaring sila mismo ay nagawa na ito, bilis at makipag-ugnayan sa kanila! Ang kanilang Photoshop layer names ay maaring pangalan ng iyong React components.
 
@@ -59,9 +59,9 @@ Ngayon na nalaman na natin ang mga components sa ating mock, ayusin na natin ang
       * `ProductCategoryRow`
       * `ProductRow`
 
-## Ika-2 na Hakbang: Gumawa ng Static Version sa React {#step-2-build-a-static-version-in-react}
+## Ika-2 Hakbang: Gumawa ng Static Version sa React {#step-2-build-a-static-version-in-react}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Tingnan sa Pen ang  <a href="https://codepen.io/gaearon/pen/BwWzwm">Pag-iisip sa React: Ika-2 Hakbang</a> sa <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Subukan sa Pen ang  <a href="https://codepen.io/gaearon/pen/BwWzwm">Pag-iisip sa React: Ika-2 Hakbang</a> sa <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 Ngayon na mayroon ka nang component hierarchy, oras na para gawin ito sa iyong app. Ang pinakamadaling paraan ay bumuo ng version na tatanggap ng data model at irerender sa UI ngunit wala itong interactivity. Mas makakabuti na paghiwalayin ang mga prosesong ito dahil ang pagbuo ng static version ay nangangailangan ng maraming typing at kaunting pag-iisip, at ang pag-dagdag naman ng interactivity ay nangangailangan ng malalim na pag-iisip at kaunting pagta-type. Malalaman nating kung bakit.
@@ -106,7 +106,7 @@ Sa wakas, ang ating state ay:
 
 ## Ika-4 na Hakbang: Suriin kung saan titira ang iyong State {#step-4-identify-where-your-state-should-live}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Tingnan ang Pen <a href="https://codepen.io/gaearon/pen/qPrNQZ">Isipin sa React: Ika-4 na Hakbang</a> sa <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Subukan sa Pen ang <a href="https://codepen.io/gaearon/pen/qPrNQZ">Isipin sa React: Ika-4 na Hakbang</a> sa <a href="https://codepen.io">CodePen</a>.</p>
 
 OK, nalaman na natin ang pinakamaliit na set ng app state. Susunod naman, kailangan nating suriin kung anong component ang nagmu-mutate na, o *nagmamay-ari* ng, state.
 
@@ -132,7 +132,7 @@ Makikita mo na kung paano gumagana ang iyong application: iset ang `"ball"` sa `
 
 ## Ika-5 Hakbang: Pagdaragdag ng Inverse Data Flow {#step-5-add-inverse-data-flow}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Pag-iisip sa React: Ika-5 Hakbang" class="codepen">Tingnan ang Pen <a href="https://codepen.io/gaearon/pen/LzWZvb">Pag-iisip sa React: Ikaw-5 Hakbang</a> sa <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Pag-iisip sa React: Ika-5 Hakbang" class="codepen">Subukan sa Pen ang <a href="https://codepen.io/gaearon/pen/LzWZvb">Pag-iisip sa React: Ikaw-5 Hakbang</a> sa <a href="https://codepen.io">CodePen</a>.</p>
 
 Sa ngayon, nabuo na nating ang app na nag-rerender ng tama gamit ang function ng props at ang state ang bumababa ng maayos sa hierarchy. Ngayon ay oras na para gawing ng data flow sa kasalungat na paraan: ang kailailalimang form components sa hierarchy ay kailangan i-update ag state sa `FilterableProductTable`.
 
