@@ -1,36 +1,36 @@
 ---
 id: introducing-jsx
-title: Introducing JSX
+title: Pagpapakilala sa JSX
 permalink: docs/introducing-jsx.html
 prev: hello-world.html
 next: rendering-elements.html
 ---
 
-Consider this variable declaration:
+Mangyaring tingnan ang variable declaration na ito:
 
 ```js
 const element = <h1>Hello, world!</h1>;
 ```
 
-This funny tag syntax is neither a string nor HTML.
+Ang syntax na ito ay hindi isang string o HTML.
 
-It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript.
+Ito ay tinatawag na JSX, at isa itong halimbawa ng syntax extension sa JavaScript. Ipinapayo naming gamitin ito kasama ng React para bigyan ng porma ang UI. Maihahalintulad ang JSX sa isang template language, ngunit maaari rin itong ipaghalo sa iba pang JavaScript na code.
 
-JSX produces React "elements". We will explore rendering them to the DOM in the [next section](/docs/rendering-elements.html). Below, you can find the basics of JSX necessary to get you started.
+Mula sa JSX, makabubuo tayo ng mga React "element". Ipapakita sa [susunod na kabanata](/docs/rendering-elements.html) ang pag-render ng JSX papunta sa DOM. Samantala, nasa sumusunod na bahagi ang mga halimbawa ng JSX para masimulan ang paggamit nito.
 
-### Why JSX? {#why-jsx}
+### Bakit JSX? {#bakit-jsx}
 
-React embraces the fact that rendering logic is inherently coupled with other UI logic: how events are handled, how the state changes over time, and how the data is prepared for display.
+Kaakibat ng pagre-render ang iba pang mga ginagawa sa UI--kinakatawan ng React ang ganitong ideya. Halimbawa nito ang paghahandle sa mga event, ang mga pabago-bago sa state, at ang paghahanda sa pagpapakita ng mga datos. 
 
-Instead of artificially separating *technologies* by putting markup and logic in separate files, React [separates *concerns*](https://en.wikipedia.org/wiki/Separation_of_concerns) with loosely coupled units called "components" that contain both. We will come back to components in a [further section](/docs/components-and-props.html), but if you're not yet comfortable putting markup in JS, [this talk](https://www.youtube.com/watch?v=x7cQ3mrcKaY) might convince you otherwise.
+Imbis na paghiwalayin ang markup at logic sa magkabukod na file, [pinaghihiwalay ng React ang mga concern](https://en.wikipedia.org/wiki/Separation_of_concerns) gamit ang mga "component" na naglalaman ng parehong markup at logic, nang hindi masyadong kailangang dumependende sa iba pang mga file. Babalikan natin ang pagtalakay sa mga component sa [susunod na kabanata](/docs/components-and-props.html), ngunit kung pakiramdam mo na mukhang di tama ang paglalagay ng markup sa JS, baka magbago ang isip mo sa [panayam na ito](https://www.youtube.com/watch?v=x7cQ3mrcKaY). 
 
-React [doesn't require](/docs/react-without-jsx.html) using JSX, but most people find it helpful as a visual aid when working with UI inside the JavaScript code. It also allows React to show more useful error and warning messages.
+[Hindi kailangan ng JSX sa React](/docs/react-without-jsx.html), ngunit malaking tulong ito sa maraming tao para magkaroon ng ideya ukol sa hitsura ng UI sa loob ng JavaScript code. Maipapakita rin ng React ang mga error at warning nang malinaw at madaling basahin.
 
-With that out of the way, let's get started!
+Ngayong naibigay na natin ang mga aspeto ng JSX, maaari na tayong magsimula!
 
-### Embedding Expressions in JSX {#embedding-expressions-in-jsx}
+### Paglalagay ng mga Expression sa JSX {#paglalagay-ng-mga-expression-sa-jsx}
 
-In the example below, we declare a variable called `name` and then use it inside JSX by wrapping it in curly braces:
+Nag-declare tayo ng variable na `name` at inilagay natin ito sa JSX gamit ang mga curly brace sa sumusunod na halimbawa:  
 
 ```js{1,2}
 const name = 'Josh Perez';
@@ -42,9 +42,9 @@ ReactDOM.render(
 );
 ```
 
-You can put any valid [JavaScript expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) inside the curly braces in JSX. For example, `2 + 2`, `user.firstName`, or `formatName(user)` are all valid JavaScript expressions.
+Maaaring maglagay ng kahit anong [JavaScript expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) na valid sa loob ng JSX; halimbawa nito ay `2 + 2`, `user.firstName`, o kaya naman ay `formatName(user)`.
 
-In the example below, we embed the result of calling a JavaScript function, `formatName(user)`, into an `<h1>` element.
+Sa halimbawang ito, nilagay natin ang resulta ng pagtawag sa isang JavaScript function, `formatName(user)`, sa loob ng element na `<h1>`:
 
 ```js{12}
 function formatName(user) {
@@ -70,13 +70,13 @@ ReactDOM.render(
 
 [](codepen://introducing-jsx)
 
-We split JSX over multiple lines for readability. While it isn't required, when doing this, we also recommend wrapping it in parentheses to avoid the pitfalls of [automatic semicolon insertion](https://stackoverflow.com/q/2846283).
+Pinaghiwa-hiwalay natin ang JSX sa bawat linya para madali itong basahin. Nilagay rin natin sa loob ng mga ng mga panaklong (parenthesis) ang JSX. Hindi naman ito kailangan, ngunit naniniwala kami na maaaring maiwasan ang pagkalito dala ng [automatic semicolon insertion](https://stackoverflow.com/q/2846283) ng JavaScript.
 
-### JSX is an Expression Too {#jsx-is-an-expression-too}
+### Ang JSX ay Isa Ring Expression {#ang-jsx-ay-isa-ring-expression}
 
-After compilation, JSX expressions become regular JavaScript function calls and evaluate to JavaScript objects.
+Pagkatapos i-compile, nagiging JavaScript rin ang JSX--mga function call na nagre-return ng JavaScript object.
 
-This means that you can use JSX inside of `if` statements and `for` loops, assign it to variables, accept it as arguments, and return it from functions:
+Ibig sabihin, maaaring gamitin ang JSX sa loob ng `if` statement at `for` loop, i-assign sa variable, gamitin bilang argument, at i-return mula sa mga function:
 
 ```js{3,5}
 function getGreeting(user) {
@@ -87,37 +87,38 @@ function getGreeting(user) {
 }
 ```
 
-### Specifying Attributes with JSX {#specifying-attributes-with-jsx}
+### Paglalagay ng Attribute sa JSX {#paglalagay-ng-attribute-sa-jsx}
 
-You may use quotes to specify string literals as attributes:
+Maaaring gamitin ang mga panipi (quotes) upang ipasa ang mga string bilang mga attribute:
 
 ```js
 const element = <div tabIndex="0"></div>;
 ```
 
-You may also use curly braces to embed a JavaScript expression in an attribute:
+Maaari ring gamitin ang mga curly brace upang maglagay ng JavaScript expression para maging attribute:
 
 ```js
 const element = <img src={user.avatarUrl}></img>;
 ```
 
-Don't put quotes around curly braces when embedding a JavaScript expression in an attribute. You should either use quotes (for string values) or curly braces (for expressions), but not both in the same attribute.
+Hindi maaaring gamitin parehas ang curly brace at mga panipi sa paglalagay ng attribute. Kailangang piliin ang panipi
+para sa mga string, at curly brace para sa mga expression.
 
 >**Warning:**
 >
->Since JSX is closer to JavaScript than to HTML, React DOM uses `camelCase` property naming convention instead of HTML attribute names.
+>Dahil mas malapit ang JSX sa JavaScript kaysa sa HTML, gumagamit ng `camelCase` ang React DOM para sa mga attribute imbis na HTML.
 >
->For example, `class` becomes [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) in JSX, and `tabindex` becomes [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
+>Halimbawa, ang `class` ay nagiging [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) sa JSX, at `tabindex` naman ay nagiging [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
 
-### Specifying Children with JSX {#specifying-children-with-jsx}
+### Paglalagay ng Children sa JSX {#paglalagay-ng-children-sa-jsx}
 
-If a tag is empty, you may close it immediately with `/>`, like XML:
+Maaaring isara ang empty tag gamit ang `/>`, parang sa XML:
 
 ```js
 const element = <img src={user.avatarUrl} />;
 ```
 
-JSX tags may contain children:
+Puwedeng magkaroon ng children ang mga JSX tag:
 
 ```js
 const element = (
@@ -128,9 +129,9 @@ const element = (
 );
 ```
 
-### JSX Prevents Injection Attacks {#jsx-prevents-injection-attacks}
+### Maiiwasan ang Injection Attack Gamit ang JSX {#maiiwasan-ang-injection-attack-gamit-ang-jsx}
 
-It is safe to embed user input in JSX:
+Ligtas ang paglalagay ng mga user input sa JSX:
 
 ```js
 const title = response.potentiallyMaliciousInput;
@@ -138,13 +139,13 @@ const title = response.potentiallyMaliciousInput;
 const element = <h1>{title}</h1>;
 ```
 
-By default, React DOM [escapes](https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that's not explicitly written in your application. Everything is converted to a string before being rendered. This helps prevent [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting) attacks.
+[Ine-escape](https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) ng React DOM ang kahit anong value na nasa loob ng JSX bago ito i-render. Sinisiguro nito na hindi mapapayagan ang mga value galing sa labas ng application na makapasok. Nagiging string ang lahat ng JSX saka ito ire-render, dahilan kaya naiiwasan ang mga [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting) attack.
 
-### JSX Represents Objects {#jsx-represents-objects}
+### Kinakatawan ng JSX ang mga Object {#kinakatawan-ng-jsx-ang-mga-object}
 
-Babel compiles JSX down to `React.createElement()` calls.
+Kino-compile ng Babel ang JSX na maging mga pagtawag sa React.createElement()`.
 
-These two examples are identical:
+Magkapareho ang mga halimbawang ito:
 
 ```js
 const element = (
@@ -162,10 +163,10 @@ const element = React.createElement(
 );
 ```
 
-`React.createElement()` performs a few checks to help you write bug-free code but essentially it creates an object like this:
+Tsine-check ng `React.createElement()` ang mga code sa mga posibleng pagmulan ng bug at iniiwasan ito, pero sa huli, ganito ang magiging kalalabasan ng pagtawag ng function:
 
 ```js
-// Note: this structure is simplified
+// Note: simplipikado ang ganitong structure
 const element = {
   type: 'h1',
   props: {
@@ -175,10 +176,10 @@ const element = {
 };
 ```
 
-These objects are called "React elements". You can think of them as descriptions of what you want to see on the screen. React reads these objects and uses them to construct the DOM and keep it up to date.
+Ito ang mga "React element"--pwede mo silang isipin na detalye sa mga nakikita sa screen. Binabasa ng React ang ganitong mga object para mag-render ng DOM at gawin itong up-to-date.
 
-We will explore rendering React elements to the DOM in the [next section](/docs/rendering-elements.html).
+Ipapakita natin ang pag-render ng React element sa DOM sa [susunod na kabanata](/docs/rendering-elements.html).
 
 >**Tip:**
 >
->We recommend using the ["Babel" language definition](https://babeljs.io/docs/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted.
+>Ipinapayo na gamitin ang ["Babel" language definition](https://babeljs.io/docs/editors) para sa iyong editor, upang mahighlight nang tama ang iyong mga ES6 at JSX code.
