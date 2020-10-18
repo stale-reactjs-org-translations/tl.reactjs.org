@@ -18,7 +18,7 @@ console.log(doubled);
 
 Makikita ang resultang ito sa console `[2, 4, 6, 8, 10]`.
 
-Sa React, ang pagta-transform ng arrays sa lists ng [elements](/docs/rendering-elements.html) ay halos magkaparehas.
+Sa React, ang pagta-transform ng arrays sa lists [elements](/docs/rendering-elements.html) ay halos magkaparehas.
 
 ### Pag-rerender ng Multiple Components {#rendering-multiple-components}
 
