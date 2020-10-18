@@ -16,7 +16,7 @@ const doubled = numbers.map((number) => number * 2);
 console.log(doubled);
 ```
 
-Ang code na ito `[2, 4, 6, 8, 10]` ay naka-log sa console.
+Makikita ang resultang ito sa console `[2, 4, 6, 8, 10]`.
 
 Sa React, ang pagta-transform ng arrays sa lists ng [elements](/docs/rendering-elements.html) ay halos magkaparehas.
 
