@@ -203,11 +203,11 @@ ReactDOM.render(
 
 [**Subukan sa CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
 
-Ang isang magandang panuntuhan ay ang mga elements sa loob ng `map()` call ay kailangan ng keys.
+Laging tandaan na ang mga elements sa loob ng `map()` ay kailangan ng keys.
 
 ### Ang mga Keys ay dapat na naiiba sa ibang keys {#keys-must-only-be-unique-among-siblings}
 
-Ang mga Keys ay dapat na naiiba sa ibang keys. Ngunit hindi naman ito kailangan globally unique. Maari tayong gumamit ng kaparehong keys kapag mayroon tayong dalawang magkaibang arrays:
+Ang mga Keys ay dapat na naiiba sa ibang keys. Ngunit hindi naman ito kailangang maging globally unique.  Sa madaling salita, maari tayong gumamit ng magkaparehong keys kapag mayroon tayong dalawang magkaibang arrays:
 
 ```js{2,5,11,12,19,21}
 function Blog(props) {
@@ -247,7 +247,7 @@ ReactDOM.render(
 
 [**Subukan sa CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
 
-Ang keys ay nagsisilbing hint sa React pero hindi ito naipapasa sa components. Kung kailangan mo ng magkaparehong value sa iyong component, explicitly na ipasa ito bilang prop na may ibang pangalan:
+Ang keys ay nagsisilbing gabay kay React pero hindi ito naipapasa sa components. Kung kailangan mo ng magkaparehong value sa iyong component, explicitly na ipasa ito bilang prop na may ibang pangalan:
 
 ```js{3,4}
 const content = posts.map((post) =>
@@ -279,7 +279,7 @@ function NumberList(props) {
 }
 ```
 
-Ang JSX ay pinapahintulutan ang [pag-eembed ng expression](/docs/introducing-jsx.html#embedding-expressions-in-jsx) sa loob ng curly braces upang ma-inline natin ang resulta ng `map()`:
+Pinahihintulutan sa JSX ang [pag-eembed ng expression](/docs/introducing-jsx.html#embedding-expressions-in-jsx) sa loob ng curly braces upang ma-inline natin ang resulta ng `map()`:
 
 ```js{5-8}
 function NumberList(props) {
@@ -297,4 +297,4 @@ function NumberList(props) {
 
 [**Subukan sa CodePen**](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
 
-Madalas ay nagreresulta ito ng clearer code, bagamat ang istilong ito ay maaaring maabuso. Tulad sa JavaScript, nasasayo ang desisyong kung may halaga bang i-extract ang variable sa ngalan ng readability. Ilagay sa isip na kung ang `map()` body ay masyado nang nested, mas madanda sigurong [i-extract ang component](/docs/components-and-props.html#extracting-components).
+Madalas ay nagreresulta ito ng mas malinaw na code, bagamat ang istilong ito ay maaaring maabuso. Tulad sa JavaScript, nasasayo ang desisyon kung may halaga bang i-extract na variable sa ngalan ng readability. Ilagay sa isip na kung ang `map()` body ay masyado nang madami, mas madanda sigurong [i-extract ang component](/docs/components-and-props.html#extracting-components).
