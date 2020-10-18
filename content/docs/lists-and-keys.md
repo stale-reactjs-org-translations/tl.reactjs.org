@@ -8,7 +8,7 @@ next: forms.html
 
 Una, balikan natin kung paano mo trina-transform ang lists sa Javascript.
 
-Tingnan ang code sa ibaba, gumamit tayo ng [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function na tumatanggap ng array ng `numbers` at dinodoble ang values nito. Inaassign natin ang bagong balik na array gamit ang `map()` sa variable na `doubled` at inila-log ito:
+Sa code sa ibaba, gumamit tayo ng [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function na tumatanggap ng array ng `numbers` at dinodoble ang values nito. Inaassign natin ang bagong balik na array gamit ang `map()` sa variable na `doubled` at inila-log ito:
 
 ```javascript{2}
 const numbers = [1, 2, 3, 4, 5];
