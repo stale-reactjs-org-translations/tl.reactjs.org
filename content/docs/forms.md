@@ -192,7 +192,7 @@ Sa HTML, ang `<input type="file">` ay pinapahintulutan ang user na pumili ng isa
 <input type="file" />
 ```
 
-Dahil ang value nito ay maari lamang basahin, ito ay isang **uncontrolled** component sa React. Itatalakay ito kasama ang iba pang uncontrolled components sa mga [susunod na kabanata ng dokumentasyon](/docs/uncontrolled-components.html#the-file-input-tag).
+Dahil ang value nito ay maari lamang basahin, ito ay isang **uncontrolled** component sa React. Itatalakay ito kasama ang iba pang uncontrolled components sa mga [susunod na mga kabanata](/docs/uncontrolled-components.html#the-file-input-tag).
 
 ## Pag-handle ng Maraming Inputs {#handling-multiple-inputs}
 
