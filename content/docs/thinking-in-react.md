@@ -8,7 +8,7 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
-Ang React ay, sa aming opinyon, nangunguna sa pagbuo ng malaki at mabilis na Web apps gamit ang Javascript. Ito ay mabisa naming nagamit sa Facebook at Instagram.
+Ang React, sa aming opinyon, ay nangunguna pagdating sa pagbuo ng malaki at mabilis na Web apps gamit ang Javascript na mabisa naming nagamit sa Facebook at Instagram.
 
 Isa sa mga malaking parte ng React ay kung paano ka mapapaisip tungkol sa mga apps habang binubuo mo ito. Sa dokyumentong ito, ipapakita namin sa inyo ang thought process sa pagbuo ng searchable product data table gamit ang React.
 
