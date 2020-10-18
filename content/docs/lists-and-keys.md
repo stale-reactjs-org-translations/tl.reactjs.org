@@ -98,7 +98,7 @@ ReactDOM.render(
 
 ## Keys {#keys}
 
-Ang keys ay tumutulong sa React upang matukoy kung anong items ang nagbago, nadagdagan, o natanggal. Ang mga keys ay dapat ibigay sa mga elements sa loob ng array upang magkaroon ang mga elements ng stable na pagkakakilanlan.
+Ang keys ay tumutulong sa React upang matukoy kung alin sa mga items ang nagbago, nadagdagan, o natanggal. Ang mga keys ay dapat ibigay sa mga elements sa loob ng array upang magkaroon ang mga elements ng stable na pagkakakilanlan.
 
 ```js{3}
 const numbers = [1, 2, 3, 4, 5];
