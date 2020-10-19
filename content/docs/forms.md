@@ -9,7 +9,7 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
-Ang HTML form elements ay medyo iba kung gumana kumpara sa ibang DOM elements ng React, dahil natural na kini-keep ng form elements ang ilang internal state. Halimbawa, ang form na ito sa simpleng HTML ay tumatanggap ng isang name:
+Ang HTML form elements ay medyo iba kung gumana kumpara sa ibang DOM elements ng React, dahil natural na pinanatili ng form elements ang ilang internal state. Halimbawa, ang form na ito sa simpleng HTML ay tumatanggap ng isang name:
 
 ```html
 <form>
@@ -21,11 +21,11 @@ Ang HTML form elements ay medyo iba kung gumana kumpara sa ibang DOM elements ng
 </form>
 ```
 
-Ang form na ito ay mayroong default na HTML form behavior na pag-browse sa bagong pahina kapag ipinasa ang form. Kapag gusto mo ang ganitong behavior sa React, gumagana na ito. Ngunit sa karamihan nang panahon, mas nakakatulong kung merong JavaScript function na nagha-handle sa pagpasa ng form at mayroong access sa na-enter na data ng user sa form. Ang karaniwang paraan upang makamit ito ay gamit ang pamamaraang tinatawag na "controlled components".
+Ang form na ito ay mayroong default na HTML form behavior na pag-browse sa bagong pahina kapag ipinasa ang form. Kapag gusto mo ang ganitong behavior sa React, gumagana na ito. Kadalasan, mas nakakatulong kung merong JavaScript function na nagha-handle sa pagpasa ng form at mayroong access sa na-enter na data ng user sa form. Ang karaniwang paraan upang makamit ito ay gamit ang pamamaraang tinatawag na "controlled components".
 
 ## Controlled Components {#controlled-components}
 
-Sa HTML, ang form elements tulad ng `<input>`, `<textarea>`, at `<select>` ay karaniwang kini-keep ang kanilang sariling state at ina-update ito batay sa input ng user. Sa React, ang mutable state ay karaniwang kini-keep sa state property ng components, at ina-update lang gamit ang [`setState()`](/docs/react-component.html#setstate).
+Sa HTML, ang form elements tulad ng `<input>`, `<textarea>`, at `<select>` ay karaniwang pinanatili ang kanilang sariling state at ina-update ito batay sa input ng user. Sa React, ang mutable state ay karaniwang pinanatili sa state property ng components, at ina-update lang gamit ang [`setState()`](/docs/react-component.html#setstate).
 
 Mapagsasama natin ang dalawa kapag ang React state ay ginawang "nag-iisang mapagkukunan ng katotohanan". Tapos ang React component na nagre-render ng form ay kinokontrol din ang nangyayari sa form sa mga kasunod na input ng user. Ang input form element na ang value ay kontrolado ng React sa ganitong pamamaraan ay tinatawag na "controlled component".
 
@@ -132,7 +132,7 @@ Sa HTML, ang `<select>` ay gumagawa ng drop-down na listahan. Halimbawa, itong H
 </select>
 ```
 
-Tandaan na ang Coconut option ay initially na naka select, dahil sa `selected` atrribute. Ang React, sa halip na gamitin itong `selected` atrribute, gumagamit ito ng `value` attribute sa root nito na `select` tag. Ito ay mas makakatulong sa isang controlled component dahil kailangan mo lamang itong i-update sa iisang lugar. Halimbawa:
+Tandaan na ang Coconut option ay initially na naka select, dahil sa `selected` attribute. Ang React, sa halip na gamitin itong `selected` attribute, gumagamit ito ng `value` attribute sa root nito na `select` tag. Ito ay mas makakatulong sa isang controlled component dahil kailangan mo lamang itong i-update sa iisang lugar. Halimbawa:
 
 ```javascript{4,10-12,24}
 class FlavorForm extends React.Component {
@@ -289,6 +289,6 @@ setTimeout(function() {
 
 Minsan ay masyadong matrabaho kung gamitin ang mga controlled components, dahil kailangan mo magsulat ng isang event handler para sa bawat paraan na maaaring mabago ang data at i-pipe ang lahat ng state ng input sa pamamagitan ng isang React component. Maaari itong maging nakakainis kapag nagko-convert ka ng isang dati nang codebase sa React o nag i-integrate ng React application sa isang non-React na library. Sa mga ganitong panahon, baka gusto mong tignan ang kabanata ukol sa [uncontrolled components](/docs/uncontrolled-components.html), isang alternatibong pamamaraan sa pag-implement ng input forms.
 
-## Mga Fully-Fledged na mga Solusyon {#fully-fledged-solutions}
+## Mga Subok nang mga Solusyon {#fully-fledged-solutions}
 
 Kung naghahanap ka ng kumpletong solusyon kasama ang validation, pagsubaybay sa mga binisitang mga fields, at pag-handle ng pagpasa ng form, ang [Formik](https://jaredpalmer.com/formik) ang isa sa mga patok na pagpipilian. Subalit, ito ay binuo sa parehong mga prinsipyo ng mga controlled components at pag-manage ng state - kaya huwag magpabaya na malaman ang mga ito.
