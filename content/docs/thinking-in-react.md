@@ -10,9 +10,9 @@ prev: composition-vs-inheritance.html
 
 Ang React, sa aming opinyon, ay nangunguna pagdating sa pagbuo ng malaki at mabilis na Web apps gamit ang Javascript na mabisa naming nagamit sa Facebook at Instagram.
 
-Isa sa mga malaking parte ng React ay kung paano ka mapapaisip tungkol sa mga apps habang binubuo mo ito. Sa dokyumentong ito, ipapakita namin sa inyo ang thought process sa pagbuo ng searchable product data table gamit ang React.
+Isa sa malaking parte ng React ay kung paano ka magisip habang bumubuo ka ng apps. Sa dokyumentong ito, ipapakita namin sa inyo ang thought process sa pagbuo ng searchable product data table gamit ang React.
 
-## Umpisahan gamit ang Mock {#start-with-a-mock}
+## Magumpisa gamit ang isang Mock {#start-with-a-mock}
 
 Isipin mong mayroon na tayong JSON API at mock galing sa ating designer. Ang mock ay ganito ang itsura:
 
@@ -33,11 +33,11 @@ Ang ating JSON API ay magbabalik ng data tulad nito:
 
 ## Ika-1 Hakbang: Hatiin ang UI sa isang Component Hierarchy {#step-1-break-the-ui-into-a-component-hierarchy}
 
-Ang una mong dapat gawin ay gumuhit ng mga kahon sa paligid ng bawat component (at subcomponent) sa mock at bigyan mo lahat ito ng pangalan. Kung ikaw ay may katuwang na designer, maaring sila mismo ay nagawa na ito, bilis at makipag-ugnayan sa kanila! Ang kanilang Photoshop layer names ay maaring pangalan ng iyong React components.
+Ang una mong dapat gawin ay gumuhit ng mga kahon sa paligid ng bawat component (at subcomponent) sa mock at bigyan mo lahat ito ng pangalan. Kung ikaw ay may katuwang na designer, maaring nagawa na ito, at maaari kang makipag-ugnayan sa kanila. Maaari mo ding pangalanan ang iyong React components gamit ang kanilang Photoshop layer name.
 
-Ngunit paano mo malalaman kung ano ba dapat ang iyong mga component? Gamiting ang parehong pamamaraan sa pagpasya kung ikaw ay gagawa ng bagong function o object. Isang pamamaraan ay ang [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), ito ay, kung saan ang component ay dapat isa lang ang tungkulin. Kung ang component ay lumalaki, dapat na mahati ito sa mas maliliit pang subcomponents.
+Ngunit paano mo malalaman kung anong mga component ang iyong gagawin? Gamitin ang iyong pamamaraan sa pagpasya bago ka gumawa ng bagong function o object. O kaya gamitin ang [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle) na nagsasabing ang isang component ay dapat isa lang ang tungkulin. Kung ang component ay lumalaki, dapat na mahati ito sa mas maliliit pang subcomponents.
 
-Dahil madalas kang nagpapakita ng JSON data model sa user, mapapasin mo na kung ang iyong model ay tama ang pagkakagawa, ang iyong UI (at pati ang mga component structure) ay sasangayon ng maayos. Sa kadahilanang ang UI at data models ay sumusunod sa kaparehong *information architecture*. Hatiin ang iyong UI sa mga components, kung saan ang bawat compoent ay tugma sa iyong data model.
+Dahil madalas kang nagpapakita ng JSON data model sa user, mapapasin mo kung tama ang pagkakagawa ng iyong model, ang iyong UI (at pati ang iyong component structure) ay sasangayon ng maayos. Sa kadahilanang ang UI at data models ay sumusunod sa kaparehong *information architecture*. Hatiin ang iyong UI sa mga components, kung saan ang bawat component ay tugma sa iyong data model.
 
 ![Component diagram](../images/blog/thinking-in-react-components.png)
 
@@ -66,7 +66,7 @@ Ngayon na nalaman na natin ang mga components sa ating mock, ayusin na natin ang
 
 Ngayon na mayroon ka nang component hierarchy, oras na para gawin ito sa iyong app. Ang pinakamadaling paraan ay bumuo ng version na tatanggap ng data model at irerender sa UI ngunit wala itong interactivity. Mas makakabuti na paghiwalayin ang mga prosesong ito dahil ang pagbuo ng static version ay nangangailangan ng maraming typing at kaunting pag-iisip, at ang pag-dagdag naman ng interactivity ay nangangailangan ng malalim na pag-iisip at kaunting pagta-type. Malalaman nating kung bakit.
 
-Upang makabuo ka ng static version ng app na magrerender ng iyong data model, gugustuhin mong bumuo muna ng components na maaaring gamitin pa ng iba pang components at magpasa ng data gamit ang *props*. Ang *props* ay paraan ng pagpasa ng data mula sa parent papunta sa child component. Kung ikaw ay pamilyar sa concept ng *state*, **huwag lang gumamit ng state** upang bumuo ng static version. Ang State ay nakareserba lamang para sa interactivity, yan ay, sa mga data nagbabago sa paglipas ng panahon.
+Upang makabuo ka ng static version ng app na magrerender ng iyong data model, gugustuhin mong bumuo muna ng components na maaaring gamitin pa ng iba pang components at magpasa ng data gamit ang *props*. Ang *props* ay paraan ng pagpasa ng data mula sa parent papunta sa child component. Kung ikaw ay pamilyar sa concept ng *state*, **huwag kang gumamit ng state** upang bumuo ng static version. Ang State ay nakareserba lamang para sa interactivity, yan ay, sa mga data na nagbabago o *dynamic*.
 
 Maari kang bumuo top-down or bottom-up. Yan ay, maaari kang magsimulang bumuo ng mga components pababa sa hierarchy (i.e. umpisa sa `FilterableProductTable`) o ang mga mas mabababa pa dito (`ProductRow`). Sa simpleng halimbawa, mas madali ang magsimula sa taas papuntang baba (top-down), at sa malalaking proyekto, mas madali namang magsimula sa baba papuntang taas (bottom-up) at magsulat ng tests habang ikaw ay bumubuo ng proyekto.
 
