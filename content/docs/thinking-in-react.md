@@ -1,6 +1,6 @@
 ---
 id: thinking-in-react
-title: Thinking in React
+title: Paano mag-isip sa React
 permalink: docs/thinking-in-react.html
 redirect_from:
   - 'blog/2013/11/05/thinking-in-react.html'
@@ -8,17 +8,17 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
-React is, in our opinion, the premier way to build big, fast Web apps with JavaScript. It has scaled very well for us at Facebook and Instagram.
+Ang React, sa aming opinyon, ay nangunguna pagdating sa pagbuo ng malaki at mabilis na Web apps gamit ang Javascript na mabisa naming nagamit sa Facebook at Instagram.
 
-One of the many great parts of React is how it makes you think about apps as you build them. In this document, we'll walk you through the thought process of building a searchable product data table using React.
+Isa sa malaking parte ng React ay kung paano ka magisip habang bumubuo ka ng apps. Sa dokyumentong ito, ipapakita namin sa inyo ang thought process sa pagbuo ng searchable product data table gamit ang React.
 
-## Start With A Mock {#start-with-a-mock}
+## Magumpisa gamit ang isang Mock {#start-with-a-mock}
 
-Imagine that we already have a JSON API and a mock from our designer. The mock looks like this:
+Isipin mong mayroon na tayong JSON API at mock galing sa ating designer. Ang mock ay ganito ang itsura:
 
 ![Mockup](../images/blog/thinking-in-react-mock.png)
 
-Our JSON API returns some data that looks like this:
+Ang ating JSON API ay magbabalik ng data tulad nito:
 
 ```
 [
@@ -31,27 +31,27 @@ Our JSON API returns some data that looks like this:
 ];
 ```
 
-## Step 1: Break The UI Into A Component Hierarchy {#step-1-break-the-ui-into-a-component-hierarchy}
+## Ika-1 Hakbang: Hatiin ang UI sa isang Component Hierarchy {#step-1-break-the-ui-into-a-component-hierarchy}
 
-The first thing you'll want to do is to draw boxes around every component (and subcomponent) in the mock and give them all names. If you're working with a designer, they may have already done this, so go talk to them! Their Photoshop layer names may end up being the names of your React components!
+Ang una mong dapat gawin ay gumuhit ng mga kahon sa paligid ng bawat component (at subcomponent) sa mock at bigyan mo lahat ito ng pangalan. Kung ikaw ay may katuwang na designer, maaring nagawa na ito, at maaari kang makipag-ugnayan sa kanila. Maaari mo ding pangalanan ang iyong React components gamit ang kanilang Photoshop layer name.
 
-But how do you know what should be its own component? Use the same techniques for deciding if you should create a new function or object. One such technique is the [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), that is, a component should ideally only do one thing. If it ends up growing, it should be decomposed into smaller subcomponents.
+Ngunit paano mo malalaman kung anong mga component ang iyong gagawin? Gamitin ang iyong pamamaraan sa pagpasya bago ka gumawa ng bagong function o object. O kaya gamitin ang [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle) na nagsasabing ang isang component ay dapat isa lang ang tungkulin. Kung ang component ay lumalaki, dapat na mahati ito sa mas maliliit pang subcomponents.
 
-Since you're often displaying a JSON data model to a user, you'll find that if your model was built correctly, your UI (and therefore your component structure) will map nicely. That's because UI and data models tend to adhere to the same *information architecture*. Separate your UI into components, where each component matches one piece of your data model.
+Dahil madalas kang nagpapakita ng JSON data model sa user, mapapasin mo kung tama ang pagkakagawa ng iyong model, ang iyong UI (at pati ang iyong component structure) ay sasangayon ng maayos. Sa kadahilanang ang UI at data models ay sumusunod sa kaparehong *information architecture*. Hatiin ang iyong UI sa mga components, kung saan ang bawat component ay tugma sa iyong data model.
 
 ![Component diagram](../images/blog/thinking-in-react-components.png)
 
-You'll see here that we have five components in our app. We've italicized the data each component represents.
+Makikita mo na mayroon tayong limang components sa ating app. Naka-italicized ang data sa bawat kinakatawang component.
 
-  1. **`FilterableProductTable` (orange):** contains the entirety of the example
-  2. **`SearchBar` (blue):** receives all *user input*
-  3. **`ProductTable` (green):** displays and filters the *data collection* based on *user input*
-  4. **`ProductCategoryRow` (turquoise):** displays a heading for each *category*
-  5. **`ProductRow` (red):** displays a row for each *product*
+  1. **`FilterableProductTable` (orange):** naglalaman ng kalahatan sa ating halimbawa
+  2. **`SearchBar` (blue):** tumatanggap ng *user input*
+  3. **`ProductTable` (green):** nagpapakita at pini-filter ang *data collection* batay sa *user input*
+  4. **`ProductCategoryRow` (turquoise):** nagpapakita ng heading sa bawat *category*
+  5. **`ProductRow` (red):** nagpapakita ng row sa bawat *product*
 
-If you look at `ProductTable`, you'll see that the table header (containing the "Name" and "Price" labels) isn't its own component. This is a matter of preference, and there's an argument to be made either way. For this example, we left it as part of `ProductTable` because it is part of rendering the *data collection* which is `ProductTable`'s responsibility. However, if this header grows to be complex (e.g., if we were to add affordances for sorting), it would certainly make sense to make this its own `ProductTableHeader` component.
+Kung titingnan mo ang `ProductTable`, mapapansin mo na ang table header (na naglalaman ng "Name" at "Price" labels) ay hindi ang kanyang sariling component. Ito ay isang preference, at mayroong argumento na gawin ito sa alinmang paraan ninanais. Sa halimbawa, isinama namin ito sa `ProductTable` dahil ito ay kasama ng rendering ng *data collection* na `ProductTable` ang responsable. Ngunit, kung ay header ay lumaki at nagiging kumplikado (e.g., kung daragdagan namin ng sorting), mas makahulugan kung magkakaroon ito ng sarili nyang `ProductTableHeader` component.
 
-Now that we've identified the components in our mock, let's arrange them into a hierarchy. Components that appear within another component in the mock should appear as a child in the hierarchy:
+Ngayon na nalaman na natin ang mga components sa ating mock, ayusin na natin ang hierarchy nito. Ang components na nasa ilalim ng isa pang component sa mock ay magiging child sa hierarchy.
 
   * `FilterableProductTable`
     * `SearchBar`
@@ -59,88 +59,89 @@ Now that we've identified the components in our mock, let's arrange them into a 
       * `ProductCategoryRow`
       * `ProductRow`
 
-## Step 2: Build A Static Version in React {#step-2-build-a-static-version-in-react}
+## Ika-2 Hakbang: Gumawa ng Static Version sa React {#step-2-build-a-static-version-in-react}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/BwWzwm">Thinking In React: Step 2</a> on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Subukan sa Pen ang  <a href="https://codepen.io/gaearon/pen/BwWzwm">Paano mag-isip sa React: Ika-2 Hakbang</a> sa <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-Now that you have your component hierarchy, it's time to implement your app. The easiest way is to build a version that takes your data model and renders the UI but has no interactivity. It's best to decouple these processes because building a static version requires a lot of typing and no thinking, and adding interactivity requires a lot of thinking and not a lot of typing. We'll see why.
+Ngayon na mayroon ka nang component hierarchy, oras na para gawin ito sa iyong app. Ang pinakamadaling paraan ay bumuo ng version na tatanggap ng data model at irerender sa UI ngunit wala itong interactivity. Mas makakabuti na paghiwalayin ang mga prosesong ito dahil ang pagbuo ng static version ay nangangailangan ng maraming typing at kaunting pag-iisip, at ang pag-dagdag naman ng interactivity ay nangangailangan ng malalim na pag-iisip at kaunting pagta-type. Malalaman nating kung bakit.
 
-To build a static version of your app that renders your data model, you'll want to build components that reuse other components and pass data using *props*. *props* are a way of passing data from parent to child. If you're familiar with the concept of *state*, **don't use state at all** to build this static version. State is reserved only for interactivity, that is, data that changes over time. Since this is a static version of the app, you don't need it.
+Upang makabuo ka ng static version ng app na magrerender ng iyong data model, gugustuhin mong bumuo muna ng components na maaaring gamitin pa ng iba pang components at magpasa ng data gamit ang *props*. Ang *props* ay paraan ng pagpasa ng data mula sa parent papunta sa child component. Kung ikaw ay pamilyar sa concept ng *state*, **huwag kang gumamit ng state** upang bumuo ng static version. Ang State ay nakareserba lamang para sa interactivity, yan ay, sa mga data na nagbabago o *dynamic*.
 
-You can build top-down or bottom-up. That is, you can either start with building the components higher up in the hierarchy (i.e. starting with `FilterableProductTable`) or with the ones lower in it (`ProductRow`). In simpler examples, it's usually easier to go top-down, and on larger projects, it's easier to go bottom-up and write tests as you build.
+Maari kang bumuo top-down or bottom-up. Yan ay, maaari kang magsimulang bumuo ng mga components pababa sa hierarchy (i.e. umpisa sa `FilterableProductTable`) o ang mga mas mabababa pa dito (`ProductRow`). Sa simpleng halimbawa, mas madali ang magsimula sa taas papuntang baba (top-down), at sa malalaking proyekto, mas madali namang magsimula sa baba papuntang taas (bottom-up) at magsulat ng tests habang ikaw ay bumubuo ng proyekto.
 
-At the end of this step, you'll have a library of reusable components that render your data model. The components will only have `render()` methods since this is a static version of your app. The component at the top of the hierarchy (`FilterableProductTable`) will take your data model as a prop. If you make a change to your underlying data model and call `ReactDOM.render()` again, the UI will be updated. You can see how your UI is updated and where to make changes. React's **one-way data flow** (also called *one-way binding*) keeps everything modular and fast.
+Sa pagtatapos ng hakbang na ito, magkakaroon ka na ng library ng reusable components na magrerender ng iyong data model. Ang mga components ay mayroon lamang na `render()` methods dahil ito ay static version ng iyong app. Ang mga component sa taas ng iyong hierarchy (`FilterableProductTable`) ay tatanggap ng iyong data model sa pamamagitan ng prop. Kung babaguhin mo ang laman ng data model at tatawagin ulit ang `ReactDOM.render()`, ang UI ay mag-uupdate. Makikita mo kung paano mag-update ang iyong UI at kung saan may mangyayaring pagbabago. Ang **one-way data flow** ng React (tinatawag din bilang *one-way binding*) ay nagpapanatili ng pagiging modular at mabilis nito.
 
-Refer to the [React docs](/docs/) if you need help executing this step.
+Sumangguni sa [React docs](/docs/) kung kailangan mong i-execute ang hakbang na ito.
 
-### A Brief Interlude: Props vs State {#a-brief-interlude-props-vs-state}
+### Maikling Interlude: Props vs State {#a-brief-interlude-props-vs-state}
 
-There are two types of "model" data in React: props and state. It's important to understand the distinction between the two; skim [the official React docs](/docs/state-and-lifecycle.html) if you aren't sure what the difference is. See also [FAQ: What is the difference between state and props?](/docs/faq-state.html#what-is-the-difference-between-state-and-props)
+May dalawang tipo ng "model" data sa React: props at state. Ito ay mahalagang maintindihan ang pakakaiba ng dalawa; pasadahan [ang official React docs](/docs/state-and-lifecycle.html) kung hindi ka sigurado sa pagkakaiba ng dalawa. Tingnan din ang [FAQ: Ano ang pagkakaiba ng state and props?](/docs/faq-state.html#what-is-the-difference-between-state-and-props)
 
-## Step 3: Identify The Minimal (but complete) Representation Of UI State {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
+## Ika-3 Hakbang: Kilalanin ang Minimal (pero kumpletong) Representasyon ng UI State {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
-To make your UI interactive, you need to be able to trigger changes to your underlying data model. React achieves this with **state**.
+Upang maging interactive ang iyong UI, kailangan mong mag-trigger ng pagbabago sa laman ng iyong data model. Makakamit nito ang React gamit ang **state**.
 
-To build your app correctly, you first need to think of the minimal set of mutable state that your app needs. The key here is [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Figure out the absolute minimal representation of the state your application needs and compute everything else you need on-demand. For example, if you're building a TODO list, keep an array of the TODO items around; don't keep a separate state variable for the count. Instead, when you want to render the TODO count, take the length of the TODO items array.
+Upang mabuo ang iyong app ng tama, kailangan mong mag-isip ng maliit ng set ng mutable state na kailangan ng iyong app. Ang susi dito ay [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Hanapin ang pinakamaliit na representasyon ng state na kailangan ng iyong application at isipin ang iba pang kailangan mo on-demand. Halimbawa, kung bubuo ka ng TODO list, panatilihin ang array ng TODO items; huwag panatilihin ang hiwalay na state variable para sa count. Sa halip, kapag guto mong irender ang TODO count, kuhanin ang length ng TODO items array.
 
-Think of all of the pieces of data in our example application. We have:
+Isipin ang lahat ng kailangan ng iyong data sa ating halimbawa. Mayroon tayong:
 
-  * The original list of products
-  * The search text the user has entered
-  * The value of the checkbox
-  * The filtered list of products
+  * Ang orihinal na listahan ng mga products
+  * Ang search text na itinala ng user
+  * Ang value ng checkbox
+  * Ang filtered list ng products
 
-Let's go through each one and figure out which one is state. Ask three questions about each piece of data:
+Tingnan natin isa-isa at tukuyin kung ano dito ang state. May tatlong tanong na makakatulong sa pagtukoy:
 
-  1. Is it passed in from a parent via props? If so, it probably isn't state.
-  2. Does it remain unchanged over time? If so, it probably isn't state.
-  3. Can you compute it based on any other state or props in your component? If so, it isn't state.
+  1. Ito ba ay ipinasa mula sa parent gamit ang props? Kung oo, maaring hindi ito state.
+  2. Hindi ba ito nagbabago habang lumilipas ang panahon? Kung oo, maaring hindi ito state.
+  3. Mako-compute ba ito base sa ibang state o props sa iyong component? Kung oo, maaring hindi ito state.
 
-The original list of products is passed in as props, so that's not state. The search text and the checkbox seem to be state since they change over time and can't be computed from anything. And finally, the filtered list of products isn't state because it can be computed by combining the original list of products with the search text and value of the checkbox.
+Ang orihinal na listahan ng products ay ipinapasa bilang props, kaya ito ay hindi state. Ang search text at ang checkbox ay tila state dahil nagbabago sila sa paglipas ng pahahon at hindi kinompute. Panghuli, ang filtered list ng products ay hindi state dahil ito ay nako-compute sa pamamagitan ng pagsasama ng orihinal na listahan ng produkto kasama ang search text at ang value ng checkbox.
 
-So finally, our state is:
+Sa wakas, ang ating state ay:
 
-  * The search text the user has entered
-  * The value of the checkbox
+  * Ang search text ng user na itinala
+  * Ang value ng checkbox
 
-## Step 4: Identify Where Your State Should Live {#step-4-identify-where-your-state-should-live}
+## Ika-4 na Hakbang: Suriin kung saan titira ang iyong State {#step-4-identify-where-your-state-should-live}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/qPrNQZ">Thinking In React: Step 4</a> on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Subukan sa Pen ang <a href="https://codepen.io/gaearon/pen/qPrNQZ">Isipin sa React: Ika-4 na Hakbang</a> sa <a href="https://codepen.io">CodePen</a>.</p>
 
-OK, so we've identified what the minimal set of app state is. Next, we need to identify which component mutates, or *owns*, this state.
+OK, nalaman na natin ang pinakamaliit na set ng app state. Susunod naman, kailangan nating suriin kung anong component ang nagmu-mutate na, o *nagmamay-ari* ng, state.
 
-Remember: React is all about one-way data flow down the component hierarchy. It may not be immediately clear which component should own what state. **This is often the most challenging part for newcomers to understand,** so follow these steps to figure it out:
+Tandaan: Ang lahat ng tungkol sa React ay one-way data flow pababa sa component hierarchy. Ang mga state sa component ay maaring hindi pa malinaw agad. **Ito ay madalas na hindi naiintindihan ng mga baguhan sa React,** kaya sundan ang mga hakbang na ito para mas maintindihan:
 
-For each piece of state in your application:
+Para sa bawat state ng iyong application:
 
-  * Identify every component that renders something based on that state.
-  * Find a common owner component (a single component above all the components that need the state in the hierarchy).
-  * Either the common owner or another component higher up in the hierarchy should own the state.
-  * If you can't find a component where it makes sense to own the state, create a new component solely for holding the state and add it somewhere in the hierarchy above the common owner component.
+  * Suriin ang bawat component na nag-rerender ng kahit ano base sa state na yon.
+  * Hanapin ang pangkaraniwang may-ari ng component (madalas ay ito ang iisang component sa itaas ng lahat ng components na kailangan ng state sa hierarchy).
+  * Alinman sa pangkaraniwang may-ari o ibang component na mas mataas sa hierarchy ay nararapat magmay-ari ng state.
+  * Kung hindi mo mahanap ang component kung saan may katuturan na magmay-ari ng state, gumawa ng bagong component para lang ariin ang state at isama ito kung saan man sa hierarchy basta sa itaas ng pangkaraniwang may-ari ng component.
 
-Let's run through this strategy for our application:
+Pasadahan natin ang pamamaraang ito sa ating application:
 
-  * `ProductTable` needs to filter the product list based on state and `SearchBar` needs to display the search text and checked state.
-  * The common owner component is `FilterableProductTable`.
-  * It conceptually makes sense for the filter text and checked value to live in `FilterableProductTable`
+  * `ProductTable` ay kailangan ng filter ng product list base sa state at ang `SearchBar` naman ay kailangan ipakita ang search text at checked state.
+  * Ang pangkaraniwang may ari ng component ay `FilterableProductTable`.
+  * Mas makabuluhang kung ang filter text at checked value ay nasa `FilterableProductTable`
 
-Cool, so we've decided that our state lives in `FilterableProductTable`. First, add an instance property `this.state = {filterText: '', inStockOnly: false}` to `FilterableProductTable`'s `constructor` to reflect the initial state of your application. Then, pass `filterText` and `inStockOnly` to `ProductTable` and `SearchBar` as a prop. Finally, use these props to filter the rows in `ProductTable` and set the values of the form fields in `SearchBar`.
+ 
+Astig, ngayon ay napagdesisyunan na natin na ang state ay nasa `FilterableProductTable`. Una, idagdag ang instance property `this.state = {filterText: '', inStockOnly: false}` sa `constructor` ng `FilterableProductTable` para ipakita ang initial state ng iyong application. Pagkatapos, ipasa ang `filterText` at `inStockOnly` sa `ProductTable` at `SearchBar` bilang prop. Panghuli, gamiting ang mga props na ito para ifilter ang rows sa `ProductTable` at iset ang values ng form fields sa `SearchBar`.
 
-You can start seeing how your application will behave: set `filterText` to `"ball"` and refresh your app. You'll see that the data table is updated correctly.
+Makikita mo na kung paano gumagana ang iyong application: iset ang `"ball"` sa `filterText` at i-refresh ang iyong app. Makikita mo na ang data table ay nag-update na ng tama.
 
-## Step 5: Add Inverse Data Flow {#step-5-add-inverse-data-flow}
+## Ika-5 Hakbang: Pagdaragdag ng Inverse Data Flow {#step-5-add-inverse-data-flow}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/LzWZvb">Thinking In React: Step 5</a> on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Paano mag-isip sa React: Ika-5 Hakbang" class="codepen">Subukan sa Pen ang <a href="https://codepen.io/gaearon/pen/LzWZvb">Paano mag-isip sa React: Ikaw-5 Hakbang</a> sa <a href="https://codepen.io">CodePen</a>.</p>
 
-So far, we've built an app that renders correctly as a function of props and state flowing down the hierarchy. Now it's time to support data flowing the other way: the form components deep in the hierarchy need to update the state in `FilterableProductTable`.
+Sa ngayon, nabuo na natin ang app na nag-rerender ng tama gamit ang function ng props at ang state ang bumababa ng maayos sa hierarchy. Ngayon ay oras na para gawing ng data flow sa kasalungat na paraan: ang kailailalimang form components sa hierarchy ay kailangan i-update ag state sa `FilterableProductTable`.
 
-React makes this data flow explicit to help you understand how your program works, but it does require a little more typing than traditional two-way data binding.
+Ang React ay ginagawa ang ganitong paraan ng data flow upang tulungan ka na maintindihan kung paano gumaga ang iyong program, pero kailangan ng kaunting pagta-type kumpara sa tradisyunal na two-way data binding.
 
-If you try to type or check the box in the current version of the example, you'll see that React ignores your input. This is intentional, as we've set the `value` prop of the `input` to always be equal to the `state` passed in from `FilterableProductTable`.
+Kung susubukan mong itype or icheck ang box sa kasalukuyang version ng halimbawa, makikita mo na walang epekto ito sa React. Ito ay inaasahan, dahil sineset natin ang `value` prop ng input na palagiang kapareho ng `state` na ipinasa galing sa `FilterableProductTable`.
 
-Let's think about what we want to happen. We want to make sure that whenever the user changes the form, we update the state to reflect the user input. Since components should only update their own state, `FilterableProductTable` will pass callbacks to `SearchBar` that will fire whenever the state should be updated. We can use the `onChange` event on the inputs to be notified of it. The callbacks passed by `FilterableProductTable` will call `setState()`, and the app will be updated.
+Isipin kung ano ang gusto nating mangyari. Nais nating masigurado na kapag binago ng user ang form, maa-update ang state ayon sa user input. Sa kadahilanang ang mga components ay dapat na iupdate ang kanilang sariling state, ang `FilterableProductTable` ay ipapasa ang callbacks sa `SearchBar` na magsisimula kapag mag-uupdate ang state. Maaari nating gamitin ang `onChange` event sa inputs para maabisuhan tayo nito. Ang mga callbacks na naipasa ng `FilterableProductTable` ay tatawagin ang `setState()`, ang app ay maa-update.
 
-## And That's It {#and-thats-it}
+## At natapos din {#and-thats-it}
 
-Hopefully, this gives you an idea of how to think about building components and applications with React. While it may be a little more typing than you're used to, remember that code is read far more than it's written, and it's less difficult to read this modular, explicit code. As you start to build large libraries of components, you'll appreciate this explicitness and modularity, and with code reuse, your lines of code will start to shrink. :)
+Sana naman ay nagbigay ito sayo ng kaliwanagan kung paano mag-isip sa pagbuo ng components at application gamit ang React. Habang ito ay pinapa-type ka ng mas marami kumpara sa iyong nakagawian, tandaan na ang nababasang code, at mas madaling basahin ang modular, na explicit na code. Sa pagsisimula mo nang pagbuo ng malaking library ng components, mas lalo mong mapapahalagahan ang explicitness at modularity, at gamit ang konsepto ng code reuse, ang iyong code ay mas lalong magiging maiksi. :D
