@@ -182,8 +182,4 @@ Ipapakita natin ang pag-render ng React element sa DOM sa [susunod na kabanata](
 
 >**Tip:**
 >
-<<<<<<< HEAD
 >Ipinapayo na gamitin ang ["Babel" language definition](https://babeljs.io/docs/editors) para sa iyong editor, upang mahighlight nang tama ang iyong mga ES6 at JSX code.
-=======
->We recommend using the ["Babel" language definition](https://babeljs.io/docs/en/next/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted.
->>>>>>> 4e6cee1f82737aa915afd87de0cd4a8393de3fc8
