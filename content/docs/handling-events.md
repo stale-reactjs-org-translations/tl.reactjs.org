@@ -1,6 +1,6 @@
 ---
 id: handling-events
-title: Handling Events
+title: Pamamahala ng Events
 permalink: docs/handling-events.html
 prev: state-and-lifecycle.html
 next: conditional-rendering.html
@@ -8,12 +8,12 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
-Handling events with React elements is very similar to handling events on DOM elements. There are some syntax differences:
+Ang pamamahala ng events sa React elements ay parehong-pareho sa pamamahala ng events sa mga DOM elements. Mayroon lamang mga pagkakaiba sa syntax
 
-* React events are named using camelCase, rather than lowercase.
-* With JSX you pass a function as the event handler, rather than a string.
+* Ang maga events sa React ay pinapangalanan gamit ang camelCase, taliwas sa lowercase.
+* Gamit ang JSX ikaw ay magpapasa ng function bilang event handler, taliwas sa nakasanayan na string.
 
-For example, the HTML:
+Halimbawa, ang HTML:
 
 ```html
 <button onclick="activateLasers()">
@@ -21,15 +21,14 @@ For example, the HTML:
 </button>
 ```
 
-is slightly different in React:
+ay may kaunting pagkakaiba sa React.
 
 ```js{1}
 <button onClick={activateLasers}>
   Activate Lasers
 </button>
 ```
-
-Another difference is that you cannot return `false` to prevent default behavior in React. You must call `preventDefault` explicitly. For example, with plain HTML, to prevent the default link behavior of opening a new page, you can write:
+Isa pang pagkakaiba ay hindi ka pwede magbalik ng `false` upang mapigil ang default behavior sa React. Kailangan mong lantarang tawagin ang `preventDefault`. Halimbawa, gamit ang HTML, upang mapigilan ang default behavior ng link tuwing magbubukas ng bagong pahina, maaari mong isulat:
 
 ```html
 <a href="#" onclick="console.log('The link was clicked.'); return false">
@@ -37,7 +36,7 @@ Another difference is that you cannot return `false` to prevent default behavior
 </a>
 ```
 
-In React, this could instead be:
+Sa React, ito ay magiging:
 
 ```js{2-5,8}
 function ActionLink() {
@@ -54,11 +53,13 @@ function ActionLink() {
 }
 ```
 
-Here, `e` is a synthetic event. React defines these synthetic events according to the [W3C spec](https://www.w3.org/TR/DOM-Level-3-Events/), so you don't need to worry about cross-browser compatibility. React events do not work exactly the same as native events. See the [`SyntheticEvent`](/docs/events.html) reference guide to learn more.
+Dito, ang `e` ay isang synthetic event. Binigyang depinisyon ng React ang mga synthetic events ayon sa [W3C spec](https://www.w3.org/TR/DOM-Level-3-Events/), kaya hindi mo na kailangan mag-alala sa cross-browser compatibility. Ang events sa React ay hindi katulad ng likas na events. Tingnan ang reference guide ng [`SyntheticEvent`](/docs/events.html) upang mas maraming malaman.
 
-When using React, you generally don't need to call `addEventListener` to add listeners to a DOM element after it is created. Instead, just provide a listener when the element is initially rendered.
+Tuwing gagamit ng React, hindi mo na kailangang tawagin ang `addEventListener` tuwing magdadagdag ng tagapakinig sa isang DOM element matapos itong magawa. Sa halip, kailangan mo lang maglagay ng tagapakinig sa element bago it mairender.
 
-When you define a component using an [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes), a common pattern is for an event handler to be a method on the class. For example, this `Toggle` component renders a button that lets the user toggle between "ON" and "OFF" states:
+Tuwing ikaw ay gagawa ng component gamit ang [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes), ang madalas na pattern ay ang paggawa ng event handler bilang method ng isang class. Halimbawa, itong `Toggle` component ay nagrerender ng button na naglalayon na magpalit sa pagitan ng "ON" at "OFF" na states:
+
+
 
 ```js{6,7,10-14,18}
 class Toggle extends React.Component {
@@ -91,13 +92,13 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
+[**Subukan sa CodePen**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
 
-You have to be careful about the meaning of `this` in JSX callbacks. In JavaScript, class methods are not [bound](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind) by default. If you forget to bind `this.handleClick` and pass it to `onClick`, `this` will be `undefined` when the function is actually called.
+Kailangan mong maging maingat sa kahulugan ng `this` sa mga JSX callbacks. Sa Javascript, ang mga class methods ay hindi [bound](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind) ayon sa default. Kapag nakalimutan mong ibind ang `this.handleClick` at pinasa mo ito sa `onClick`, ang `this` ay magiging `undefined` kapag ito ay natawag.
 
-This is not React-specific behavior; it is a part of [how functions work in JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Generally, if you refer to a method without `()` after it, such as `onClick={this.handleClick}`, you should bind that method.
+Hindi ito behavior na sa React lang matatagpuan, ito ay parte kung [paano gumagana ang functions sa Javascript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Kadalasan, kapag ikaw ay tumukoy ng method nang walang `()` kasunod nito, tulad ng `onClick={this.handleClick}`, kailangan mong ibind ang method na ito.
 
-If calling `bind` annoys you, there are two ways you can get around this. If you are using the experimental [public class fields syntax](https://babeljs.io/docs/plugins/transform-class-properties/), you can use class fields to correctly bind callbacks:
+Kung ang pagtawag ng `bind` ay nakakainis para sayo, mayroong dalawang paraaan para matakasan ito. Kung ginagamit mo ang experimental [public class fields syntax](https://babeljs.io/docs/plugins/transform-class-properties/), pwede mong gamitin ang mga class fields upang tamang ibind ang callbacks.
 
 ```js{2-6}
 class LoggingButton extends React.Component {
@@ -117,9 +118,9 @@ class LoggingButton extends React.Component {
 }
 ```
 
-This syntax is enabled by default in [Create React App](https://github.com/facebookincubator/create-react-app).
+Ang syntax na ito ay pinapagana ayon sa default ng [Create React App](https://github.com/facebookincubator/create-react-app).
 
-If you aren't using class fields syntax, you can use an [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) in the callback:
+Kung hindi ka gumagamit ng class fields syntax, maaari kang gumamit ng [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) sa callback:
 
 ```js{7-9}
 class LoggingButton extends React.Component {
@@ -138,17 +139,17 @@ class LoggingButton extends React.Component {
 }
 ```
 
-The problem with this syntax is that a different callback is created each time the `LoggingButton` renders. In most cases, this is fine. However, if this callback is passed as a prop to lower components, those components might do an extra re-rendering. We generally recommend binding in the constructor or using the class fields syntax, to avoid this sort of performance problem.
+Ang problema sa ganitong syntax ay magkakaroon ng ibang callback tuwing ang `LoggingButton` ay narerender.  Sa kabuuan, ayos lamang ito. Ngunit, kung ang callback ay pinasa bilang prop sa lower components, itong mga component na ito ay maaaring gumawa ng extra re-rendering. Pinapayuhan namin na mag-bind sa constructor o kaya gumamit ng class fields syntax, upang maiwasan ang ganitong problema sa performance.
 
-## Passing Arguments to Event Handlers {#passing-arguments-to-event-handlers}
+## Pagpapasa ng mga argumento sa event handlers{#passing-arguments-to-event-handlers}
 
-Inside a loop, it is common to want to pass an extra parameter to an event handler. For example, if `id` is the row ID, either of the following would work:
+Sa loob ng loop, nakasanayan na ang pagpapasa ng extra parameter sa isang event handler. Halimbawa, kung ang `id` ay para sa hanay na ID, maaring gamitin ang sumusunod:
 
 ```js
 <button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
 <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
 ```
 
-The above two lines are equivalent, and use [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) and [`Function.prototype.bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) respectively.
+Ang dalawang linya sa itaas ay magkapareho lamang, at gumagamit ng [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) at [`Function.prototype.bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind).
 
-In both cases, the `e` argument representing the React event will be passed as a second argument after the ID. With an arrow function, we have to pass it explicitly, but with `bind` any further arguments are automatically forwarded.
+Sa parehong halimbawa, ang argumentong `e` ay kumakatawan sa React event na ipapasa bilang ikalawang argumento kasunod ng ID. Gamit ang arrow function, kailangan natin itong lantarang ipasa, ngunit kapag `bind` ang mga karagdagang mga argumento ay automatic na naipapasa.
