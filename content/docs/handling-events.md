@@ -153,3 +153,4 @@ Sa loob ng loop, nakasanayan na ang pagpapasa ng extra parameter sa isang event 
 Ang dalawang linya sa itaas ay magkapareho lamang, at gumagamit ng [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) at [`Function.prototype.bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind).
 
 Sa parehong halimbawa, ang argumentong `e` ay kumakatawan sa React event na ipapasa bilang ikalawang argumento kasunod ng ID. Gamit ang arrow function, kailangan natin itong lantarang ipasa, ngunit kapag `bind` ang mga karagdagang mga argumento ay automatic na naipapasa.
+ 
