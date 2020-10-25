@@ -24,7 +24,7 @@
     - id: state-and-lifecycle
       title: State and Lifecycle
     - id: handling-events
-      title: Handling Events
+      title: Pamamahala ng mga Events
     - id: conditional-rendering
       title: Conditional Rendering
     - id: lists-and-keys
