@@ -8,9 +8,9 @@ prev: components-and-props.html
 next: handling-events.html
 ---
 
-Ang pahinang ito ay nagpapakilala sa concept ng state and lifecycle sa React component. Makikita ang mas [detalyadong reference sa component API dito](/docs/react-component.html).
+Ang pahinang ito ay magpapaliwanag sa concept ng state and lifecycle sa React component. Makikita ang mas [detalyadong reference sa component API dito](/docs/react-component.html).
 
-Balikan nating ang halimbawa ng ticking clock [sa nakaraang section](/docs/rendering-elements.html#updating-the-rendered-element). Sa [Rendering Elements](/docs/rendering-elements.html#rendering-an-element-into-the-dom), natutunan natin ang one way na pag-update sa UI. Tinawag nating ang `ReactDOM.render()` upang palitang ang rendered output:
+Balikan natin ang halimbawa ng ticking clock [sa nakaraang section](/docs/rendering-elements.html#updating-the-rendered-element). Sa [Rendering Elements](/docs/rendering-elements.html#rendering-an-element-into-the-dom), natutunan natin ang one way na pag-update sa UI. Tinawag natin ang `ReactDOM.render()` upang palitang ang rendered output:
 
 ```js{8-11}
 function tick() {
@@ -31,9 +31,9 @@ setInterval(tick, 1000);
 
 [**Subukan sa CodePen**](https://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
-Sa section na ito, matututunan nating kung papaano gumawa ng `Clock` component na magiging reusable at encapsulated. Isesetup nito ang kanyang sariling timer at ia-update nito ang oras kada segundo.
+Sa section na ito, matututunan natin kung papaano gumawa ng `Clock` component na magiging reusable at encapsulated. Isesetup nito ang kanyang sariling timer at ia-update nito ang oras kada segundo.
 
-Simulan nating ang pag-eencapsulate sa `Clock` component tulad nito:
+Simulan natin ang pag-eencapsulate sa `Clock` component tulad nito:
 
 ```js{3-6,12}
 function Clock(props) {
@@ -144,7 +144,7 @@ class Clock extends React.Component {
 }
 ```
 
-Tingnan mabuti kung paano nating ipinasa ang `props` sa base constructor:
+Tingnan mabuti kung paano natin ipinapasa ang `props` sa base constructor:
 
 ```js{2}
   constructor(props) {
@@ -164,7 +164,7 @@ ReactDOM.render(
 );
 ```
 
-Ibabalik nating mamaya ng timer code sa component.
+Ibabalik natin mamaya ng timer code sa component.
 
 Ganito ang magiging resulta:
 
@@ -306,7 +306,7 @@ Ngayon ay nag-titick na ang orasan sa bawat segundo.
 
 Tayo'y mabilis na balikan kung ano ang ating ginawa at ang order kung kailan tinawag ang mga method:
 
-1) Kapag ang `<Clock />` ay ipinasa sa `ReactDOM.render()`, ang React ay tinatawag ang constructor ng `Clock` component. Dahil sa ang `Clock` ay kailangang mag-display ng current time, nag-iinitialize ito ng `this.state` na may object kasama ang current time. I-uupdate nating ang state na ito mamaya.
+1) Kapag ang `<Clock />` ay ipinasa sa `ReactDOM.render()`, ang React ay tinatawag ang constructor ng `Clock` component. Dahil sa ang `Clock` ay kailangang mag-display ng current time, nag-iinitialize ito ng `this.state` na may object kasama ang current time. I-uupdate natin ang state na ito mamaya.
 
 2) Ang React ngayon ay tinatawag ang `render()` method ng `Clock` component. Ito ang paraan ng React kung papano nito nalalaman kung ano ang i-didisplay sa screen. Ang React ay ina-update ang DOM para maging kapareho ng ang render output ng `Clock` component.
 
@@ -458,5 +458,4 @@ ReactDOM.render(
 
 Ang bawat `Clock` sine-setup ang kanyang sariling timer at ina-update ito independently.
 
-Sa mga React apps, maging stateful man o stateless ang component ay itinuturing na implementation detail ng component na maaring magbago sa paglipas ng panahon. Maari kang gumamit ng stateless component sa loob ng stateful components, at vi
-In React apps, whether a component is stateful or stateless is considered an implementation detail of the component that may change over time. You can use stateless components inside stateful components, at kabaliktaran.
+Ang mga React apps, maging stateful man o stateless ang component ay itinuturing na implementation detail ng component na maaring magbago sa paglipas ng panahon. Maari kang gumamit ng stateless component sa loob ng stateful components, at kabaliktaran.
