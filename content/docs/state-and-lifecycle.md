@@ -8,9 +8,9 @@ prev: components-and-props.html
 next: handling-events.html
 ---
 
-This page introduces the concept of state and lifecycle in a React component. You can find a [detailed component API reference here](/docs/react-component.html).
+Ang pahinang ito ay nagpapakilala sa concept ng state and lifecycle sa React component. Makikita ang mas [detalyadong reference sa component API dito](/docs/react-component.html).
 
-Consider the ticking clock example from [one of the previous sections](/docs/rendering-elements.html#updating-the-rendered-element). In [Rendering Elements](/docs/rendering-elements.html#rendering-an-element-into-the-dom), we have only learned one way to update the UI. We call `ReactDOM.render()` to change the rendered output:
+Balikan nating ang halimbawa ng ticking clock [sa nakaraang section](/docs/rendering-elements.html#updating-the-rendered-element). Sa [Rendering Elements](/docs/rendering-elements.html#rendering-an-element-into-the-dom), natutunan natin ang one way na pag-update sa UI. Tinawag nating ang `ReactDOM.render()` upang palitang ang rendered output:
 
 ```js{8-11}
 function tick() {
@@ -29,11 +29,11 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/gwoJZk?editors=0010)
+[**Subukan sa CodePen**](https://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
-In this section, we will learn how to make the `Clock` component truly reusable and encapsulated. It will set up its own timer and update itself every second.
+Sa section na ito, matututunan nating kung papaano gumawa ng `Clock` component na magiging reusable at encapsulated. Isesetup nito ang kanyang sariling timer at ia-update nito ang oras kada segundo.
 
-We can start by encapsulating how the clock looks:
+Simulan nating ang pag-eencapsulate sa `Clock` component tulad nito:
 
 ```js{3-6,12}
 function Clock(props) {
@@ -55,11 +55,11 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/dpdoYR?editors=0010)
+[**Subukan sa CodePen**](https://codepen.io/gaearon/pen/dpdoYR?editors=0010)
 
-However, it misses a crucial requirement: the fact that the `Clock` sets up a timer and updates the UI every second should be an implementation detail of the `Clock`.
+Ngunit, nakaligtaan nito ang isang mahalagang pangangailangan: karapatdapat na ang pag-setup ng `Clock` timer at UI update sa bawat segundo ay mapatupad sa `Clock` component mismo.
 
-Ideally we want to write this once and have the `Clock` update itself:
+Mas angkop sanang isulat ito ng isang beses lamang at hayaang ang `Clock` ay mag-update ng sarili nya:
 
 ```js{2}
 ReactDOM.render(
@@ -68,23 +68,23 @@ ReactDOM.render(
 );
 ```
 
-To implement this, we need to add "state" to the `Clock` component.
+Upang ito ay mapatupad, kailangan nating magdagdag ng "state" sa `Clock` component.
 
-State is similar to props, but it is private and fully controlled by the component.
+Ang state ay katulad ng props, pero ito ay private at nako-control lang ng component.
 
-## Converting a Function to a Class {#converting-a-function-to-a-class}
+## Pag-convert ng Function upang maging Class {#converting-a-function-to-a-class}
 
-You can convert a function component like `Clock` to a class in five steps:
+Maaring i-convert ang function component tulad ng `Clock` upang maging class sa loob ng limang hakbang:
 
-1. Create an [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes), with the same name, that extends `React.Component`.
+1. Gumagawa ng [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes), na may kaparehong pangalang, at naka-extend sa `React.Component`.
 
-2. Add a single empty method to it called `render()`.
+2. Magdagdag ng `render()` method na walang laman.
 
-3. Move the body of the function into the `render()` method.
+3. Ilipat ang lamang ng function sa loob ng `render()` method.
 
-4. Replace `props` with `this.props` in the `render()` body.
+4. Ipalit ang `this.props` sa lahat ng`props` sa loob ng `render()`.
 
-5. Delete the remaining empty function declaration.
+5. Tanggaling ang mga natitirang blanking function declaration.
 
 ```js
 class Clock extends React.Component {
@@ -99,17 +99,17 @@ class Clock extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/zKRGpo?editors=0010)
+[**Subukan sa CodePen**](https://codepen.io/gaearon/pen/zKRGpo?editors=0010)
 
-`Clock` is now defined as a class rather than a function.
+Ang `Clock` ay isa nang class at hindi na isang function.
 
-The `render` method will be called each time an update happens, but as long as we render `<Clock />` into the same DOM node, only a single instance of the `Clock` class will be used. This lets us use additional features such as local state and lifecycle methods.
+Ang `render` method ay tatawagin sa bawat mangyayaring update, ngunit habang nagrerender ang `<Clock />` sa kaparehong DOM node, tanging iisang instang lang ng `Clock` class ang magagamit. Ito ang magpapahintulot sa ating upang makapagdagdag ng features tulad ng local state at lifecycle methods.
 
-## Adding Local State to a Class {#adding-local-state-to-a-class}
+## Pagdaragdag ng Local State sa Class {#adding-local-state-to-a-class}
 
-We will move the `date` from props to state in three steps:
+Gagawin nating state ang `date` na dating props sa loob ng tatlong hakbang:
 
-1) Replace `this.props.date` with `this.state.date` in the `render()` method:
+1) Palitan ang `this.props.date` ng `this.state.date` sa loob ng `render()` method:
 
 ```js{6}
 class Clock extends React.Component {
@@ -124,7 +124,7 @@ class Clock extends React.Component {
 }
 ```
 
-2) Add a [class constructor](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor) that assigns the initial `this.state`:
+2) Magdagdag ng [class constructor](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor) na nag-aasign ng `this.state`:
 
 ```js{4}
 class Clock extends React.Component {
@@ -144,7 +144,7 @@ class Clock extends React.Component {
 }
 ```
 
-Note how we pass `props` to the base constructor:
+Tingnan mabuti kung paano nating ipinasa ang `props` sa base constructor:
 
 ```js{2}
   constructor(props) {
@@ -153,9 +153,9 @@ Note how we pass `props` to the base constructor:
   }
 ```
 
-Class components should always call the base constructor with `props`.
+Ang class components ay dapat na palaging tawagin ang base constructor `props`.
 
-3) Remove the `date` prop from the `<Clock />` element:
+3) Tanggaling ang `date` prop mula sa `<Clock />` element:
 
 ```js{2}
 ReactDOM.render(
@@ -164,9 +164,9 @@ ReactDOM.render(
 );
 ```
 
-We will later add the timer code back to the component itself.
+Ibabalik nating mamaya ng timer code sa component.
 
-The result looks like this:
+Ganito ang magiging resulta:
 
 ```js{2-5,11,18}
 class Clock extends React.Component {
@@ -191,19 +191,19 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
+[**Subukan sa CodePen**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
 
-Next, we'll make the `Clock` set up its own timer and update itself every second.
+Susunod, gagawin natin ang `Clock` na magkaroon ng sarili nitong timer at mag-update ito sa bawat segundo.
 
-## Adding Lifecycle Methods to a Class {#adding-lifecycle-methods-to-a-class}
+## Pagdagdag ng Lifecycle Methods sa Class {#adding-lifecycle-methods-to-a-class}
 
-In applications with many components, it's very important to free up resources taken by the components when they are destroyed.
+Sa application na mayroon maraming components, napakahalaga na ma-free up ang resources na ginagamit ng components kapag ito ay hindi na ginagamit na.
 
-We want to [set up a timer](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) whenever the `Clock` is rendered to the DOM for the first time. This is called "mounting" in React.
+Gusto nating [mag-set up ng timer](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) kapag ang `Clock` ay narender sa DOM sa unang pagkakataon. Ang tawag dito ay "mounting" sa React.
 
-We also want to [clear that timer](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) whenever the DOM produced by the `Clock` is removed. This is called "unmounting" in React.
+Gusto din nating [i-clear ang timer](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) kapag ang DOM na ginawa ng `Clock` ay natanggal. Ang tawag dito ay "unmounting" sa React.
 
-We can declare special methods on the component class to run some code when a component mounts and unmounts:
+Pwede tayong mag-declare ng special methods sa component class para patakbuhin ang code kapag na-mount at unmount ang component.
 
 ```js{7-9,11-13}
 class Clock extends React.Component {
@@ -231,9 +231,9 @@ class Clock extends React.Component {
 }
 ```
 
-These methods are called "lifecycle methods".
+Ang tawag sa mga method na ito ay "lifecycle methods".
 
-The `componentDidMount()` method runs after the component output has been rendered to the DOM. This is a good place to set up a timer:
+Ang `componentDidMount()` method ay tumatakbo pagkapatapos mag-render ng output ang component sa DOM. Ito ay magandang pagkakataon para mag-setup ng timer:
 
 ```js{2-5}
   componentDidMount() {
@@ -244,11 +244,11 @@ The `componentDidMount()` method runs after the component output has been render
   }
 ```
 
-Note how we save the timer ID right on `this` (`this.timerID`).
+Tingnan mabuti kung paano tayo nagse-save ng timer ID sa `this` (`this.timerID`).
 
-While `this.props` is set up by React itself and `this.state` has a special meaning, you are free to add additional fields to the class manually if you need to store something that doesn’t participate in the data flow (like a timer ID).
+Habang ang `this.props` ay sine-setup ng React at ang `this.state` ay may special meaning, malaya kang magdagdag ng ibang fields sa class manually kung kailangan mong mag-store ng kahit ano na hindi kasama sa data flow (tulad ng timer ID).
 
-We will tear down the timer in the `componentWillUnmount()` lifecycle method:
+Tayo ay ite-tear down ang timer sa `componentWillUnmount()` lifecycle method:
 
 ```js{2}
   componentWillUnmount() {
@@ -256,9 +256,9 @@ We will tear down the timer in the `componentWillUnmount()` lifecycle method:
   }
 ```
 
-Finally, we will implement a method called `tick()` that the `Clock` component will run every second.
+Sa wakas, tayo ay mag-iimplement ng method na tatatawaging `tick()` na papatakbuhin ng `Clock` component bawat segundo.
 
-It will use `this.setState()` to schedule updates to the component local state:
+Gagamitin nito ang `this.setState()` para mag-schedule ng update sa component local state:
 
 ```js{18-22}
 class Clock extends React.Component {
@@ -300,51 +300,51 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/amqdNA?editors=0010)
+[**Subukan sa CodePen**](https://codepen.io/gaearon/pen/amqdNA?editors=0010)
 
-Now the clock ticks every second.
+Ngayon ay nag-titick na ang orasan sa bawat segundo.
 
-Let's quickly recap what's going on and the order in which the methods are called:
+Tayo'y mabilis na balikan kung ano ang ating ginawa at ang order kung kailan tinawag ang mga method:
 
-1) When `<Clock />` is passed to `ReactDOM.render()`, React calls the constructor of the `Clock` component. Since `Clock` needs to display the current time, it initializes `this.state` with an object including the current time. We will later update this state.
+1) Kapag ang `<Clock />` ay ipinasa sa `ReactDOM.render()`, ang React ay tinatawag ang constructor ng `Clock` component. Dahil sa ang `Clock` ay kailangang mag-display ng current time, nag-iinitialize ito ng `this.state` na may object kasama ang current time. I-uupdate nating ang state na ito mamaya.
 
-2) React then calls the `Clock` component's `render()` method. This is how React learns what should be displayed on the screen. React then updates the DOM to match the `Clock`'s render output.
+2) Ang React ngayon ay tinatawag ang `render()` method ng `Clock` component. Ito ang paraan ng React kung papano nito nalalaman kung ano ang i-didisplay sa screen. Ang React ay ina-update ang DOM para maging kapareho ng ang render output ng `Clock` component.
 
-3) When the `Clock` output is inserted in the DOM, React calls the `componentDidMount()` lifecycle method. Inside it, the `Clock` component asks the browser to set up a timer to call the component's `tick()` method once a second.
+3) Kapag ang `Clock` output ay nailagay na sa DOM, ang React ay tinatawag ang `componentDidMount()` lifecycle method. Sa loob nito, ang `Clock` component ay nagsasabi sa browser na i-setup ang timer para tawagin ang `tick()` method bawat segundo. 
 
-4) Every second the browser calls the `tick()` method. Inside it, the `Clock` component schedules a UI update by calling `setState()` with an object containing the current time. Thanks to the `setState()` call, React knows the state has changed, and calls the `render()` method again to learn what should be on the screen. This time, `this.state.date` in the `render()` method will be different, and so the render output will include the updated time. React updates the DOM accordingly.
+4) Ang browser ay tinatawag ang `tick()` method bawat segundo. Sa loob nito, ang `Clock` component ay ini-schedule ang a UI update sa pamamagitan ng pagtawag sa `setState()` na may object lamang ang current time. Salamat sa `setState()` call, ang React ay alam na nagbago na ang state, at tinatawag nito ang `render()` method ulit upang matutunan nito ang ilalabas sa screen. Sa pagkakataong ito, ang `this.state.date` sa `render()` method ay magiging iba, at ang render output ay ilalabas ang updated time. Ang React ay i-uupdate ang DOM ng maayos.
 
-5) If the `Clock` component is ever removed from the DOM, React calls the `componentWillUnmount()` lifecycle method so the timer is stopped.
+5) Kung ang `Clock` component ay mawawala sa DOM, ang React ay tatawagin ang `componentWillUnmount()` lifecycle method para mahinto ang timer.
 
-## Using State Correctly {#using-state-correctly}
+## Tamang paggamit ng State {#using-state-correctly}
 
-There are three things you should know about `setState()`.
+Mayroon tatlong bagay na dapat mong malamay sa `setState()`.
 
-### Do Not Modify State Directly {#do-not-modify-state-directly}
+### Huwag madaliang i-modify ang State {#do-not-modify-state-directly}
 
-For example, this will not re-render a component:
+Halimbawa, ito ay hindi ire-render muli ang component:
 
 ```js
 // Wrong
 this.state.comment = 'Hello';
 ```
 
-Instead, use `setState()`:
+Sa halip, gumamit ng `setState()`:
 
 ```js
 // Correct
 this.setState({comment: 'Hello'});
 ```
 
-The only place where you can assign `this.state` is the constructor.
+Ang tanging lugar na maaring mag-assign ng `this.state` ay sa constructor.
 
-### State Updates May Be Asynchronous {#state-updates-may-be-asynchronous}
+### Ang pag-update ng State ay maaring Asynchronous {#state-updates-may-be-asynchronous}
 
-React may batch multiple `setState()` calls into a single update for performance.
+Ang React ay maaring tawagin ang maraming `setState()` minsanan upang makamit ang magandang performance.
 
-Because `this.props` and `this.state` may be updated asynchronously, you should not rely on their values for calculating the next state.
+Dahil ang `this.props` at `this.state` ay maaaring mag-update asynchronously, hindi ka dapat umasa sa mga value para i-calculate ang next state.
 
-For example, this code may fail to update the counter:
+Halimbawa, ang code na ito ay hindi gagana sa pag-update ng counter:
 
 ```js
 // Wrong
@@ -353,7 +353,7 @@ this.setState({
 });
 ```
 
-To fix it, use a second form of `setState()` that accepts a function rather than an object. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument:
+Para maayos ito, gumamit ng ikalawang form ng `setState()` na tumatanggap ng function sa halip na object. Ang function ay tatanggap ng previous state sa unang argument, at ang props sa oras ng pag-update ay magiging ikalawang argument:
 
 ```js
 // Correct
@@ -362,7 +362,7 @@ this.setState((state, props) => ({
 }));
 ```
 
-We used an [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) above, but it also works with regular functions:
+Gumamit tayo ng [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) sa itaas, pero gagana din ito gamit ang regular function:
 
 ```js
 // Correct
@@ -375,9 +375,9 @@ this.setState(function(state, props) {
 
 ### State Updates are Merged {#state-updates-are-merged}
 
-When you call `setState()`, React merges the object you provide into the current state.
+Kapag tinawag ang `setState()`, ang React ay pinagsasama ang object na iyong ibinigay at ang current state.
 
-For example, your state may contain several independent variables:
+Halimbawa, ang iyong state ay maaring maglaman ng iilang independent variables:
 
 ```js{4,5}
   constructor(props) {
@@ -389,7 +389,7 @@ For example, your state may contain several independent variables:
   }
 ```
 
-Then you can update them independently with separate `setState()` calls:
+Pagkatapos ay maaari mong i-update ang mga ito nang independently sa magkakahiwalay na `setState ()` na tawag:
 
 ```js{4,10}
   componentDidMount() {
@@ -407,21 +407,21 @@ Then you can update them independently with separate `setState()` calls:
   }
 ```
 
-The merging is shallow, so `this.setState({comments})` leaves `this.state.posts` intact, but completely replaces `this.state.comments`.
+Ang merging ay shallow, kaya ang `this.setState ({comments})` ay iniwang buo ang `ito.state.post`, ngunit ganap na pumapalit sa` this.state.comments`.
 
-## The Data Flows Down {#the-data-flows-down}
+## Ang Data ay nagflo-Flow Pababa {#the-data-flows-down}
 
-Neither parent nor child components can know if a certain component is stateful or stateless, and they shouldn't care whether it is defined as a function or a class.
+Ang parent o mga child component ay hindi alam kung ang component ay stateful o stateless, at hindi nito kailangan intindihin kung na-define ba ito na function or class.
 
-This is why state is often called local or encapsulated. It is not accessible to any component other than the one that owns and sets it.
+Ito ang dahilan kung bakit ang state ay kadalasang local o encapsulated ang tawag. Matatawag lang ito sa component na nagmamay-ari dito at hindi sa ibang component.
 
-A component may choose to pass its state down as props to its child components:
+Ang component ay maaring ipasa ang state nito bilang props sa kanyang mga child component:
 
 ```js
 <FormattedDate date={this.state.date} />
 ```
 
-The `FormattedDate` component would receive the `date` in its props and wouldn't know whether it came from the `Clock`'s state, from the `Clock`'s props, or was typed by hand:
+Ang `FormattedDate` component ay tumatanggap ng `date` sa kanyang props at hindi nito alam kung ito ay galing sa state ng `Clock`, mula sa mga props ng `Clock`, o isinulat manually:
 
 ```js
 function FormattedDate(props) {
@@ -429,13 +429,13 @@ function FormattedDate(props) {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/zKRqNB?editors=0010)
+[**Subukan sa CodePen**](https://codepen.io/gaearon/pen/zKRqNB?editors=0010)
 
-This is commonly called a "top-down" or "unidirectional" data flow. Any state is always owned by some specific component, and any data or UI derived from that state can only affect components "below" them in the tree.
+Kadalasang tawag dito ay "top-down" o "unidirectional" data flow. Ang anumang state ay palaging pag-aari ng partikular na component, at anumang data o UI na na-derive sa state ay makakaapekto lamang sa mga component na nasa ibaba nito.
 
-If you imagine a component tree as a waterfall of props, each component's state is like an additional water source that joins it at an arbitrary point but also flows down.
+Kung isisiping mo, ang component tree ay isang waterfall ng props, ang bawat component state ay katulad ng iba pang water source na pinagsasama ito sa isang punto pero dumadaloy din ito pababa.
 
-To show that all components are truly isolated, we can create an `App` component that renders three `<Clock>`s:
+Para ipakita na ang lahat ng component ay totoong isolated, maari tayong gumawa ng `App` component na nagrerender ng tatlong `<Clock>`:
 
 ```js{4-6}
 function App() {
@@ -454,8 +454,9 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/vXdGmd?editors=0010)
+[**Subukan sa CodePen**](https://codepen.io/gaearon/pen/vXdGmd?editors=0010)
 
-Each `Clock` sets up its own timer and updates independently.
+Ang bawat `Clock` sine-setup ang kanyang sariling timer at ina-update ito independently.
 
-In React apps, whether a component is stateful or stateless is considered an implementation detail of the component that may change over time. You can use stateless components inside stateful components, and vice versa.
+Sa mga React apps, maging stateful man o stateless ang component ay itinuturing na implementation detail ng component na maaring magbago sa paglipas ng panahon. Maari kang gumamit ng stateless component sa loob ng stateful components, at vi
+In React apps, whether a component is stateful or stateless is considered an implementation detail of the component that may change over time. You can use stateless components inside stateful components, at kabaliktaran.
