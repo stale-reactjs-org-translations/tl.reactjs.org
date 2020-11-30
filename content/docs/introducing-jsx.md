@@ -92,7 +92,7 @@ function getGreeting(user) {
 Maaaring gamitin ang mga panipi (quotes) upang ipasa ang mga string bilang mga attribute:
 
 ```js
-const element = <div tabIndex="0"></div>;
+const element = <div tabIndex={0}></div>;
 ```
 
 Maaari ring gamitin ang mga curly brace upang maglagay ng JavaScript expression para maging attribute:
