@@ -9,7 +9,7 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
-HTML form elements work a little bit differently from other DOM elements in React, because form elements naturally keep some internal state. For example, this form in plain HTML accepts a single name:
+Ang HTML form elements ay medyo iba kung gumana kumpara sa ibang DOM elements ng React, dahil natural na pinanatili ng form elements ang ilang internal state. Halimbawa, ang form na ito sa simpleng HTML ay tumatanggap ng isang name:
 
 ```html
 <form>
@@ -21,15 +21,15 @@ HTML form elements work a little bit differently from other DOM elements in Reac
 </form>
 ```
 
-This form has the default HTML form behavior of browsing to a new page when the user submits the form. If you want this behavior in React, it just works. But in most cases, it's convenient to have a JavaScript function that handles the submission of the form and has access to the data that the user entered into the form. The standard way to achieve this is with a technique called "controlled components".
+Ang form na ito ay mayroong default na HTML form behavior na pag-browse sa bagong pahina kapag ipinasa ang form. Kapag gusto mo ang ganitong behavior sa React, gumagana na ito. Kadalasan, mas nakakatulong kung merong JavaScript function na nagha-handle sa pagpasa ng form at mayroong access sa na-enter na data ng user sa form. Ang karaniwang paraan upang makamit ito ay gamit ang pamamaraang tinatawag na "controlled components".
 
 ## Controlled Components {#controlled-components}
 
-In HTML, form elements such as `<input>`, `<textarea>`, and `<select>` typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with [`setState()`](/docs/react-component.html#setstate).
+Sa HTML, ang form elements tulad ng `<input>`, `<textarea>`, at `<select>` ay karaniwang pinanatili ang kanilang sariling state at ina-update ito batay sa input ng user. Sa React, ang mutable state ay karaniwang pinanatili sa state property ng components, at ina-update lang gamit ang [`setState()`](/docs/react-component.html#setstate).
 
-We can combine the two by making the React state be the "single source of truth". Then the React component that renders a form also controls what happens in that form on subsequent user input. An input form element whose value is controlled by React in this way is called a "controlled component".
+Mapagsasama natin ang dalawa kapag ang React state ay ginawang "nag-iisang mapagkukunan ng katotohanan". Tapos ang React component na nagre-render ng form ay kinokontrol din ang nangyayari sa form sa mga kasunod na input ng user. Ang input form element na ang value ay kontrolado ng React sa ganitong pamamaraan ay tinatawag na "controlled component".
 
-For example, if we want to make the previous example log the name when it is submitted, we can write the form as a controlled component:
+Halimbawa, kung nais nating gawin ang nakaraang halimbawa na pag-log ng name kapag ito ay ipinasa, pwede natin isulat ang form bilang isang controlled component:
 
 ```javascript{4,10-12,21,24}
 class NameForm extends React.Component {
@@ -64,15 +64,15 @@ class NameForm extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/VmmPgp?editors=0010)
+[**Subukan sa CodePen**](https://codepen.io/gaearon/pen/VmmPgp?editors=0010)
 
-Since the `value` attribute is set on our form element, the displayed value will always be `this.state.value`, making the React state the source of truth. Since `handleChange` runs on every keystroke to update the React state, the displayed value will update as the user types.
+Dahil ang `value` attribute ay naka set sa ating form element, ang displayed value ay palaging magiging `this.state.value`, na kung saan ang React state ay nagiging nag-iisang mapagkukunan ng katotohanan. Dahil ang `handleChange` ay gumagana sa bawat keystroke para i-update ang React state, ang displayed value ay maa-update habang nag ta-type ang user.
 
-With a controlled component, the input's value is always driven by the React state. While this means you have to type a bit more code, you can now pass the value to other UI elements too, or reset it from other event handlers.
+Gamit ang controlled component, ang value ng input ay palaging nakabatay sa React state. Kahit na nangangahulugan ito na kailangan mong mag-type ng kaunti pang code, maaari mo na ngayong maipasa ang value sa iba pang mga UI elements, o i-reset ito mula sa ibang mga event handlers.
 
-## The textarea Tag {#the-textarea-tag}
+## Ang textarea Tag {#the-textarea-tag}
 
-In HTML, a `<textarea>` element defines its text by its children:
+Sa HTML, tinutukoy ng `<textarea>` element ang kanyang text sa children nito:
 
 ```html
 <textarea>
@@ -80,7 +80,7 @@ In HTML, a `<textarea>` element defines its text by its children:
 </textarea>
 ```
 
-In React, a `<textarea>` uses a `value` attribute instead. This way, a form using a `<textarea>` can be written very similarly to a form that uses a single-line input:
+Sa React, ang `<textarea>` ay sa halip gumagamit ng `value` attribute. Sa ganitong pamamaraan, ang form na gumagamit ng `<textarea>` ay pwedeng isulat na halos katulad sa isang form na gumagamit ng isang linyahan na input:
 
 ```javascript{4-6,12-14,26}
 class EssayForm extends React.Component {
@@ -117,11 +117,11 @@ class EssayForm extends React.Component {
 }
 ```
 
-Notice that `this.state.value` is initialized in the constructor, so that the text area starts off with some text in it.
+Pansinin mo na ang `this.state.value` ay initialized sa constructor, upang ang text area ay magsisimula na mayroong ilang text dito.
 
-## The select Tag {#the-select-tag}
+## Ang select Tag {#the-select-tag}
 
-In HTML, `<select>` creates a drop-down list. For example, this HTML creates a drop-down list of flavors:
+Sa HTML, ang `<select>` ay gumagawa ng drop-down na listahan. Halimbawa, itong HTML ay gumawa ng drop-down na listahan ng mga lasa:
 
 ```html
 <select>
@@ -132,7 +132,7 @@ In HTML, `<select>` creates a drop-down list. For example, this HTML creates a d
 </select>
 ```
 
-Note that the Coconut option is initially selected, because of the `selected` attribute. React, instead of using this `selected` attribute, uses a `value` attribute on the root `select` tag. This is more convenient in a controlled component because you only need to update it in one place. For example:
+Tandaan na ang Coconut option ay initially na naka select, dahil sa `selected` attribute. Ang React, sa halip na gamitin itong `selected` attribute, gumagamit ito ng `value` attribute sa root nito na `select` tag. Ito ay mas makakatulong sa isang controlled component dahil kailangan mo lamang itong i-update sa iisang lugar. Halimbawa:
 
 ```javascript{4,10-12,24}
 class FlavorForm extends React.Component {
@@ -172,33 +172,33 @@ class FlavorForm extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/JbbEzX?editors=0010)
+[**Subukan sa CodePen**](https://codepen.io/gaearon/pen/JbbEzX?editors=0010)
 
-Overall, this makes it so that `<input type="text">`, `<textarea>`, and `<select>` all work very similarly - they all accept a `value` attribute that you can use to implement a controlled component.
+Sa kabuuan, ginagawa ito upang ang `<input type="text">`, `<textarea>`, at `<select>` lahat ay maghalintulad na gumagana - lahat sila ay tumatanggap ng `value` attribute na maari gamitin para mag implement ang isang controlled component.
 
-> Note
+> Paalala
 >
-> You can pass an array into the `value` attribute, allowing you to select multiple options in a `select` tag:
+> Maaari kang magpasa ng isang array sa `value` attribute na kung saan pinapayagan kang pumili ng maraming mga options sa isang `select` tag:
 >
 >```js
 ><select multiple={true} value={['B', 'C']}>
 >```
 
-## The file input Tag {#the-file-input-tag}
+## Ang file input Tag {#the-file-input-tag}
 
-In HTML, an `<input type="file">` lets the user choose one or more files from their device storage to be uploaded to a server or manipulated by JavaScript via the [File API](https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications).
+Sa HTML, ang `<input type="file">` ay pinapahintulutan ang user na pumili ng isa o higit pang mga files sa kanilang device storage upang mai-upload sa isang server o mamanipula ng JavaScript gamit ang [File API](https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications).
 
 ```html
 <input type="file" />
 ```
 
-Because its value is read-only, it is an **uncontrolled** component in React. It is discussed together with other uncontrolled components [later in the documentation](/docs/uncontrolled-components.html#the-file-input-tag).
+Dahil ang value nito ay maari lamang basahin, ito ay isang **uncontrolled** component sa React. Itatalakay ito kasama ang iba pang uncontrolled components sa mga [susunod na mga kabanata](/docs/uncontrolled-components.html#the-file-input-tag).
 
-## Handling Multiple Inputs {#handling-multiple-inputs}
+## Pag-handle ng Maraming Inputs {#handling-multiple-inputs}
 
-When you need to handle multiple controlled `input` elements, you can add a `name` attribute to each element and let the handler function choose what to do based on the value of `event.target.name`.
+Kapag kailangan mo mag handle ng maraming controlled `input` elements, maaari kang magdagdag ng `name` attribute sa bawat element at hayaan ang handler function na pumili kung ano ang gagawin batay sa value ng `event.target.name`.
 
-For example:
+Halimbawa:
 
 ```javascript{15,18,28,37}
 class Reservation extends React.Component {
@@ -248,9 +248,9 @@ class Reservation extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/wgedvV?editors=0010)
+[**Subukan sa CodePen**](https://codepen.io/gaearon/pen/wgedvV?editors=0010)
 
-Note how we used the ES6 [computed property name](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#Computed_property_names) syntax to update the state key corresponding to the given input name:
+Tandaan kung papaano ginamit ang ES6 [computed property name](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#Computed_property_names) na syntax para ma-update ang key ng state ayon sa ibinigay na name na input:
 
 ```js{2}
 this.setState({
@@ -258,7 +258,7 @@ this.setState({
 });
 ```
 
-It is equivalent to this ES5 code:
+Ito ay katumbas nitong ES5 na code:
 
 ```js{2}
 var partialState = {};
@@ -266,13 +266,14 @@ partialState[name] = value;
 this.setState(partialState);
 ```
 
-Also, since `setState()` automatically [merges a partial state into the current state](/docs/state-and-lifecycle.html#state-updates-are-merged), we only needed to call it with the changed parts.
+Dahil ang `setState()` ay kusang [pinagsasama ang partial state sa current state](/docs/state-and-lifecycle.html#state-updates-are-merged), kailangan na lamang nating tawagin ito sa mga nabago nitong bahagi.
 
-## Controlled Input Null Value {#controlled-input-null-value}
+## Controlled Input na Null ang Value {#controlled-input-null-value}
 
-Specifying the value prop on a [controlled component](/docs/forms.html#controlled-components) prevents the user from changing the input unless you desire so. If you've specified a `value` but the input is still editable, you may have accidentally set `value` to `undefined` or `null`.
+Sa pag-specify ng value prop sa isang [controlled component](/docs/forms.html#controlled-components),
+pinipigilan nito ang user na baguhin ang input maliban kung nais mo. Kapag nag-specify ka ng `value` pero ang input ay maaari paring i-edit, baka hindi mo sinasadyang na ma-set ang `value` sa `undefined` o `null`.
 
-The following code demonstrates this. (The input is locked at first but becomes editable after a short delay.)
+Ipinapakita ito ng sumusunod na code. (Ang input ay naka-lock sa una ngunit maaaring ma-edit ito pagkatapos ng isang maikling pagkaantala.)
 
 ```javascript
 ReactDOM.render(<input value="hi" />, mountNode);
@@ -283,10 +284,11 @@ setTimeout(function() {
 
 ```
 
-## Alternatives to Controlled Components {#alternatives-to-controlled-components}
+## Mga Alternatibo sa Controlled Components {#alternatives-to-controlled-components}
 
-It can sometimes be tedious to use controlled components, because you need to write an event handler for every way your data can change and pipe all of the input state through a React component. This can become particularly annoying when you are converting a preexisting codebase to React, or integrating a React application with a non-React library. In these situations, you might want to check out [uncontrolled components](/docs/uncontrolled-components.html), an alternative technique for implementing input forms.
 
-## Fully-Fledged Solutions {#fully-fledged-solutions}
+Minsan ay masyadong matrabaho kung gamitin ang mga controlled components, dahil kailangan mo magsulat ng isang event handler para sa bawat paraan na maaaring mabago ang data at i-pipe ang lahat ng state ng input sa pamamagitan ng isang React component. Maaari itong maging nakakainis kapag nagko-convert ka ng isang dati nang codebase sa React o nag i-integrate ng React application sa isang non-React na library. Sa mga ganitong panahon, baka gusto mong tignan ang kabanata ukol sa [uncontrolled components](/docs/uncontrolled-components.html), isang alternatibong pamamaraan sa pag-implement ng input forms.
 
-If you're looking for a complete solution including validation, keeping track of the visited fields, and handling form submission, [Formik](https://jaredpalmer.com/formik) is one of the popular choices. However, it is built on the same principles of controlled components and managing state — so don't neglect to learn them.
+## Mga Subok nang mga Solusyon {#fully-fledged-solutions}
+
+Kung naghahanap ka ng kumpletong solusyon kasama ang validation, pagsubaybay sa mga binisitang mga fields, at pag-handle ng pagpasa ng form, ang [Formik](https://jaredpalmer.com/formik) ang isa sa mga patok na pagpipilian. Subalit, ito ay binuo sa parehong mga prinsipyo ng mga controlled components at pag-manage ng state - kaya huwag magpabaya na malaman ang mga ito.
