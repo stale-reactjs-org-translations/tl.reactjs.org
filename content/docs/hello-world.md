@@ -39,8 +39,17 @@ Ang React ay isang JavaScript library kung kaya't aming ina-assume na may sapat 
 
 >Paalala
 >
+<<<<<<< HEAD
 >Ang gabay na ito ay madalas gumagamit ng mga bagong JavaScript syntax sa mga halimbawa. Kung hindi ka na gumagamit ng JavaScript sa mga nakalipas na mga taon, [
 ang tatlong puntong ito](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) ay makakatulong para makasunod ka sa mga susunod na aralin.
+=======
+>This guide occasionally uses some newer JavaScript syntax in the examples. If you haven't worked with JavaScript in the last few years, [these three points](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) should get you most of the way.
+
+
+## Let's Get Started! {#lets-get-started}
+
+Keep scrolling down, and you'll find the link to the [next chapter of this guide](/docs/introducing-jsx.html) right before the website footer.
+>>>>>>> f3baa6d075c8de475b688abf035d7054bc8a9606
 
 ## Halina't Magsimula! {#lets-get-started}
 
