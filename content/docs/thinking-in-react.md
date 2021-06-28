@@ -84,7 +84,11 @@ Upang maging interactive ang iyong UI, kailangan mong mag-trigger ng pagbabago s
 
 Upang mabuo ang iyong app ng tama, kailangan mong mag-isip ng maliit ng set ng mutable state na kailangan ng iyong app. Ang susi dito ay [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Hanapin ang pinakamaliit na representasyon ng state na kailangan ng iyong application at isipin ang iba pang kailangan mo on-demand. Halimbawa, kung bubuo ka ng TODO list, panatilihin ang array ng TODO items; huwag panatilihin ang hiwalay na state variable para sa count. Sa halip, kapag guto mong irender ang TODO count, kuhanin ang length ng TODO items array.
 
+<<<<<<< HEAD
 Isipin ang lahat ng kailangan ng iyong data sa ating halimbawa. Mayroon tayong:
+=======
+Think of all the pieces of data in our example application. We have:
+>>>>>>> 25f756d8e3800afb032cb31ce3626d6134e31e38
 
   * Ang orihinal na listahan ng mga products
   * Ang search text na itinala ng user

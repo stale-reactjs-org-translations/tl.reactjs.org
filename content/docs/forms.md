@@ -9,7 +9,11 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
+<<<<<<< HEAD
 Ang HTML form elements ay medyo iba kung gumana kumpara sa ibang DOM elements ng React, dahil natural na pinanatili ng form elements ang ilang internal state. Halimbawa, ang form na ito sa simpleng HTML ay tumatanggap ng isang name:
+=======
+HTML form elements work a bit differently from other DOM elements in React, because form elements naturally keep some internal state. For example, this form in plain HTML accepts a single name:
+>>>>>>> 25f756d8e3800afb032cb31ce3626d6134e31e38
 
 ```html
 <form>
