@@ -39,9 +39,13 @@ Ngunit paano mo malalaman kung anong mga component ang iyong gagawin? Gamitin an
 
 Dahil madalas kang nagpapakita ng JSON data model sa user, mapapasin mo kung tama ang pagkakagawa ng iyong model, ang iyong UI (at pati ang iyong component structure) ay sasangayon ng maayos. Sa kadahilanang ang UI at data models ay sumusunod sa kaparehong *information architecture*. Hatiin ang iyong UI sa mga components, kung saan ang bawat component ay tugma sa iyong data model.
 
-![Component diagram](../images/blog/thinking-in-react-components.png)
+![Diagram showing nesting of components](../images/blog/thinking-in-react-components.png)
 
+<<<<<<< HEAD
 Makikita mo na mayroon tayong limang components sa ating app. Naka-italicized ang data sa bawat kinakatawang component.
+=======
+You'll see here that we have five components in our app. We've italicized the data each component represents. The numbers in the image correspond to the numbers below.
+>>>>>>> a11c2534062bd79cc1e6e34db0e149f928df35bb
 
   1. **`FilterableProductTable` (orange):** naglalaman ng kalahatan sa ating halimbawa
   2. **`SearchBar` (blue):** tumatanggap ng *user input*
@@ -84,7 +88,11 @@ Upang maging interactive ang iyong UI, kailangan mong mag-trigger ng pagbabago s
 
 Upang mabuo ang iyong app ng tama, kailangan mong mag-isip ng maliit ng set ng mutable state na kailangan ng iyong app. Ang susi dito ay [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Hanapin ang pinakamaliit na representasyon ng state na kailangan ng iyong application at isipin ang iba pang kailangan mo on-demand. Halimbawa, kung bubuo ka ng TODO list, panatilihin ang array ng TODO items; huwag panatilihin ang hiwalay na state variable para sa count. Sa halip, kapag guto mong irender ang TODO count, kuhanin ang length ng TODO items array.
 
+<<<<<<< HEAD
 Isipin ang lahat ng kailangan ng iyong data sa ating halimbawa. Mayroon tayong:
+=======
+Think of all the pieces of data in our example application. We have:
+>>>>>>> a11c2534062bd79cc1e6e34db0e149f928df35bb
 
   * Ang orihinal na listahan ng mga products
   * Ang search text na itinala ng user
