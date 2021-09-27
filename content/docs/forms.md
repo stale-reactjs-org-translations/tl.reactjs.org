@@ -9,7 +9,11 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
+<<<<<<< HEAD
 Ang HTML form elements ay medyo iba kung gumana kumpara sa ibang DOM elements ng React, dahil natural na pinanatili ng form elements ang ilang internal state. Halimbawa, ang form na ito sa simpleng HTML ay tumatanggap ng isang name:
+=======
+HTML form elements work a bit differently from other DOM elements in React, because form elements naturally keep some internal state. For example, this form in plain HTML accepts a single name:
+>>>>>>> 4fab3d31469ab7a53dbf8b50cab5d57880a0c035
 
 ```html
 <form>
@@ -270,8 +274,12 @@ Dahil ang `setState()` ay kusang [pinagsasama ang partial state sa current state
 
 ## Controlled Input na Null ang Value {#controlled-input-null-value}
 
+<<<<<<< HEAD
 Sa pag-specify ng value prop sa isang [controlled component](/docs/forms.html#controlled-components),
 pinipigilan nito ang user na baguhin ang input maliban kung nais mo. Kapag nag-specify ka ng `value` pero ang input ay maaari paring i-edit, baka hindi mo sinasadyang na ma-set ang `value` sa `undefined` o `null`.
+=======
+Specifying the `value` prop on a [controlled component](/docs/forms.html#controlled-components) prevents the user from changing the input unless you desire so. If you've specified a `value` but the input is still editable, you may have accidentally set `value` to `undefined` or `null`.
+>>>>>>> 4fab3d31469ab7a53dbf8b50cab5d57880a0c035
 
 Ipinapakita ito ng sumusunod na code. (Ang input ay naka-lock sa una ngunit maaaring ma-edit ito pagkatapos ng isang maikling pagkaantala.)
 

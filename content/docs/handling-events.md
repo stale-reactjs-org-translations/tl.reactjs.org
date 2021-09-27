@@ -28,27 +28,32 @@ ay may kaunting pagkakaiba sa React.
   Activate Lasers
 </button>
 ```
+<<<<<<< HEAD
 Isa pang pagkakaiba ay hindi ka pwede magbalik ng `false` upang mapigil ang default behavior sa React. Kailangan mong lantarang tawagin ang `preventDefault`. Halimbawa, gamit ang HTML, upang mapigilan ang default behavior ng link tuwing magbubukas ng bagong pahina, maaari mong isulat:
+=======
+
+Another difference is that you cannot return `false` to prevent default behavior in React. You must call `preventDefault` explicitly. For example, with plain HTML, to prevent the default form behavior of submitting, you can write:
+>>>>>>> 4fab3d31469ab7a53dbf8b50cab5d57880a0c035
 
 ```html
-<a href="#" onclick="console.log('The link was clicked.'); return false">
-  Click me
-</a>
+<form onsubmit="console.log('You clicked submit.'); return false">
+  <button type="submit">Submit</button>
+</form>
 ```
 
 Sa React, ito ay magiging:
 
-```js{2-5,8}
-function ActionLink() {
-  function handleClick(e) {
+```js{3}
+function Form() {
+  function handleSubmit(e) {
     e.preventDefault();
-    console.log('The link was clicked.');
+    console.log('You clicked submit.');
   }
 
   return (
-    <a href="#" onClick={handleClick}>
-      Click me
-    </a>
+    <form onSubmit={handleSubmit}>
+      <button type="submit">Submit</button>
+    </form>
   );
 }
 ```
@@ -72,8 +77,8 @@ class Toggle extends React.Component {
   }
 
   handleClick() {
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
     }));
   }
 
