@@ -39,9 +39,13 @@ Ngunit paano mo malalaman kung anong mga component ang iyong gagawin? Gamitin an
 
 Dahil madalas kang nagpapakita ng JSON data model sa user, mapapasin mo kung tama ang pagkakagawa ng iyong model, ang iyong UI (at pati ang iyong component structure) ay sasangayon ng maayos. Sa kadahilanang ang UI at data models ay sumusunod sa kaparehong *information architecture*. Hatiin ang iyong UI sa mga components, kung saan ang bawat component ay tugma sa iyong data model.
 
-![Component diagram](../images/blog/thinking-in-react-components.png)
+![Diagram showing nesting of components](../images/blog/thinking-in-react-components.png)
 
+<<<<<<< HEAD
 Makikita mo na mayroon tayong limang components sa ating app. Naka-italicized ang data sa bawat kinakatawang component.
+=======
+You'll see here that we have five components in our app. We've italicized the data each component represents. The numbers in the image correspond to the numbers below.
+>>>>>>> f2158e36715acc001c8317e20dc4f45f9e2089f3
 
   1. **`FilterableProductTable` (orange):** naglalaman ng kalahatan sa ating halimbawa
   2. **`SearchBar` (blue):** tumatanggap ng *user input*
@@ -72,7 +76,11 @@ Maari kang bumuo top-down or bottom-up. Yan ay, maaari kang magsimulang bumuo ng
 
 Sa pagtatapos ng hakbang na ito, magkakaroon ka na ng library ng reusable components na magrerender ng iyong data model. Ang mga components ay mayroon lamang na `render()` methods dahil ito ay static version ng iyong app. Ang mga component sa taas ng iyong hierarchy (`FilterableProductTable`) ay tatanggap ng iyong data model sa pamamagitan ng prop. Kung babaguhin mo ang laman ng data model at tatawagin ulit ang `ReactDOM.render()`, ang UI ay mag-uupdate. Makikita mo kung paano mag-update ang iyong UI at kung saan may mangyayaring pagbabago. Ang **one-way data flow** ng React (tinatawag din bilang *one-way binding*) ay nagpapanatili ng pagiging modular at mabilis nito.
 
+<<<<<<< HEAD
 Sumangguni sa [React docs](/docs/) kung kailangan mong i-execute ang hakbang na ito.
+=======
+Refer to the [React docs](/docs/getting-started.html) if you need help executing this step.
+>>>>>>> f2158e36715acc001c8317e20dc4f45f9e2089f3
 
 ### Maikling Interlude: Props vs State {#a-brief-interlude-props-vs-state}
 
@@ -84,7 +92,11 @@ Upang maging interactive ang iyong UI, kailangan mong mag-trigger ng pagbabago s
 
 Upang mabuo ang iyong app ng tama, kailangan mong mag-isip ng maliit ng set ng mutable state na kailangan ng iyong app. Ang susi dito ay [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Hanapin ang pinakamaliit na representasyon ng state na kailangan ng iyong application at isipin ang iba pang kailangan mo on-demand. Halimbawa, kung bubuo ka ng TODO list, panatilihin ang array ng TODO items; huwag panatilihin ang hiwalay na state variable para sa count. Sa halip, kapag guto mong irender ang TODO count, kuhanin ang length ng TODO items array.
 
+<<<<<<< HEAD
 Isipin ang lahat ng kailangan ng iyong data sa ating halimbawa. Mayroon tayong:
+=======
+Think of all the pieces of data in our example application. We have:
+>>>>>>> f2158e36715acc001c8317e20dc4f45f9e2089f3
 
   * Ang orihinal na listahan ng mga products
   * Ang search text na itinala ng user
@@ -138,7 +150,11 @@ Sa ngayon, nabuo na natin ang app na nag-rerender ng tama gamit ang function ng 
 
 Ang React ay ginagawa ang ganitong paraan ng data flow upang tulungan ka na maintindihan kung paano gumaga ang iyong program, pero kailangan ng kaunting pagta-type kumpara sa tradisyunal na two-way data binding.
 
+<<<<<<< HEAD
 Kung susubukan mong itype or icheck ang box sa kasalukuyang version ng halimbawa, makikita mo na walang epekto ito sa React. Ito ay inaasahan, dahil sineset natin ang `value` prop ng input na palagiang kapareho ng `state` na ipinasa galing sa `FilterableProductTable`.
+=======
+If you try to type or check the box in the previous version of the example (step 4), you'll see that React ignores your input. This is intentional, as we've set the `value` prop of the `input` to always be equal to the `state` passed in from `FilterableProductTable`.
+>>>>>>> f2158e36715acc001c8317e20dc4f45f9e2089f3
 
 Isipin kung ano ang gusto nating mangyari. Nais nating masigurado na kapag binago ng user ang form, maa-update ang state ayon sa user input. Sa kadahilanang ang mga components ay dapat na iupdate ang kanilang sariling state, ang `FilterableProductTable` ay ipapasa ang callbacks sa `SearchBar` na magsisimula kapag mag-uupdate ang state. Maaari nating gamitin ang `onChange` event sa inputs para maabisuhan tayo nito. Ang mga callbacks na naipasa ng `FilterableProductTable` ay tatawagin ang `setState()`, ang app ay maa-update.
 
