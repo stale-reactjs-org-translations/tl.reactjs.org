@@ -74,7 +74,11 @@ Upang makabuo ka ng static version ng app na magrerender ng iyong data model, gu
 
 Maari kang bumuo top-down or bottom-up. Yan ay, maaari kang magsimulang bumuo ng mga components pababa sa hierarchy (i.e. umpisa sa `FilterableProductTable`) o ang mga mas mabababa pa dito (`ProductRow`). Sa simpleng halimbawa, mas madali ang magsimula sa taas papuntang baba (top-down), at sa malalaking proyekto, mas madali namang magsimula sa baba papuntang taas (bottom-up) at magsulat ng tests habang ikaw ay bumubuo ng proyekto.
 
+<<<<<<< HEAD
 Sa pagtatapos ng hakbang na ito, magkakaroon ka na ng library ng reusable components na magrerender ng iyong data model. Ang mga components ay mayroon lamang na `render()` methods dahil ito ay static version ng iyong app. Ang mga component sa taas ng iyong hierarchy (`FilterableProductTable`) ay tatanggap ng iyong data model sa pamamagitan ng prop. Kung babaguhin mo ang laman ng data model at tatawagin ulit ang `ReactDOM.render()`, ang UI ay mag-uupdate. Makikita mo kung paano mag-update ang iyong UI at kung saan may mangyayaring pagbabago. Ang **one-way data flow** ng React (tinatawag din bilang *one-way binding*) ay nagpapanatili ng pagiging modular at mabilis nito.
+=======
+At the end of this step, you'll have a library of reusable components that render your data model. The components will only have `render()` methods since this is a static version of your app. The component at the top of the hierarchy (`FilterableProductTable`) will take your data model as a prop. If you make a change to your underlying data model and call `root.render()` again, the UI will be updated. You can see how your UI is updated and where to make changes. React's **one-way data flow** (also called *one-way binding*) keeps everything modular and fast.
+>>>>>>> 9a5bf3e1f1c151720b3ce383fdd9743d4038b71e
 
 <<<<<<< HEAD
 Sumangguni sa [React docs](/docs/) kung kailangan mong i-execute ang hakbang na ito.
