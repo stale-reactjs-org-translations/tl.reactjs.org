@@ -33,13 +33,14 @@ const listItems = numbers.map((number) =>
 );
 ```
 
+<<<<<<< HEAD
 Isinasama natin ang buong `listItems` array sa loob ng `<ul>` element, at [inirerender ito sa DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
+=======
+Then, we can include the entire `listItems` array inside a `<ul>` element:
+>>>>>>> 6d965422a4056bac5f93f92735364cb08bcffc6b
 
 ```javascript{2}
-ReactDOM.render(
-  <ul>{listItems}</ul>,
-  document.getElementById('root')
-);
+<ul>{listItems}</ul>
 ```
 
 [**Subukan sa CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
@@ -64,10 +65,8 @@ function NumberList(props) {
 }
 
 const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<NumberList numbers={numbers} />);
 ```
 
 Kapag pinagana mo ang code na ito, makikita mo ang babala na tungkol sa dapat na pagdaragdag ng key para sa list items. Ang "key" ay espesyal na string attribute na kailangan mong isama kapag gumagawa ka ng lists ng elements. Tatalakayin natin ito sa susunod na kabanata kung bakit ito importante.
@@ -86,12 +85,6 @@ function NumberList(props) {
     <ul>{listItems}</ul>
   );
 }
-
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
 
 [**Subukan sa CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
@@ -165,12 +158,6 @@ function NumberList(props) {
     </ul>
   );
 }
-
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
 
 **Halimbawa: Ang tamang paggamit ng Key**
@@ -193,12 +180,6 @@ function NumberList(props) {
     </ul>
   );
 }
-
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
 
 [**Subukan sa CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
@@ -243,10 +224,9 @@ const posts = [
   {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
   {id: 2, title: 'Installation', content: 'You can install React from npm.'}
 ];
-ReactDOM.render(
-  <Blog posts={posts} />,
-  document.getElementById('root')
-);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Blog posts={posts} />);
 ```
 
 [**Subukan sa CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
