@@ -4,7 +4,7 @@ title: Extracting State Logic into a Reducer
 
 <Intro>
 
-Components with many state updates spread across many event handlers can get overwhelming. For these cases, you can consolidate all the state update logic outside your component in a single function, called a "reducer."
+Components with many state updates spread across many event handlers can get overwhelming. For these cases, you can consolidate all the state update logic outside your component in a single function, called a *reducer.*
 
 </Intro>
 
@@ -19,7 +19,7 @@ Components with many state updates spread across many event handlers can get ove
 
 ## Consolidate state logic with a reducer {/*consolidate-state-logic-with-a-reducer*/}
 
-As your components grow in complexity, it can get harder to see all the different ways that a component's state gets updated at a glance. For example, the `TaskBoard` component below holds an array of `tasks` in state and uses three different event handlers to add, remove, and edit tasks:
+As your components grow in complexity, it can get harder to see at a glance all the different ways in which a component's state gets updated. For example, the `TaskApp` component below holds an array of `tasks` in state and uses three different event handlers to add, remove, and edit tasks:
 
 <Sandpack>
 
@@ -28,7 +28,7 @@ import { useState } from 'react';
 import AddTask from './AddTask.js';
 import TaskList from './TaskList.js';
 
-export default function TaskBoard() {
+export default function TaskApp() {
   const [tasks, setTasks] = useState(initialTasks);
 
   function handleAddTask(text) {
@@ -224,7 +224,7 @@ Remove all the state setting logic. What you are left with are three event handl
 * `handleChangeTask(task)` is called when the user toggles a task or presses "Save".
 * `handleDeleteTask(taskId)` is called when the user presses "Delete".
 
-Managing state with reducers is slightly different from directly setting state. Instead of telling React "what to do" by setting state, you specify "what the user just did" by dispatching "actions" from your event handlers. (The state update logic will live elsewhere!) So instead of "setting `tasks`" via event handler, you're dispatching an "added/removed/deleted a task" action. This is more descriptive of the user's intent.
+Managing state with reducers is slightly different from directly setting state. Instead of telling React "what to do" by setting state, you specify "what the user just did" by dispatching "actions" from your event handlers. (The state update logic will live elsewhere!) So instead of "setting `tasks`" via an event handler, you're dispatching an "added/changed/deleted a task" action. This is more descriptive of the user's intent.
 
 ```js
 function handleAddTask(text) {
@@ -492,7 +492,7 @@ import { useReducer } from 'react';
 import AddTask from './AddTask.js';
 import TaskList from './TaskList.js';
 
-export default function TaskBoard() {
+export default function TaskApp() {
   const [tasks, dispatch] = useReducer(
     tasksReducer,
     initialTasks
@@ -682,7 +682,7 @@ import AddTask from './AddTask.js';
 import TaskList from './TaskList.js';
 import tasksReducer from './tasksReducer.js';
 
-export default function TaskBoard() {
+export default function TaskApp() {
   const [tasks, dispatch] = useReducer(
     tasksReducer,
     initialTasks
@@ -886,7 +886,7 @@ We recommend using a reducer if you often encounter bugs due to incorrect state 
 Keep these two tips in mind when writing reducers:
 
 * **Reducers must be pure.** Similar to [state updater functions](/learn/queueing-a-series-of-state-updates), reducers run during rendering! (Actions are queued until the next render.) This means that reducers [must be pure](/learn/keeping-components-pure)—same inputs always result in the same output. They should not send requests, schedule timeouts, or perform any side effects (operations that impact things outside the component). They should update [objects](/learn/updating-objects-in-state) and [arrays](/learn/updating-arrays-in-state) without mutations.
-* **Actions describe "what happened," not "what to do."** For example, if a user presses "Reset" on a form with five fields managed by a reducer, it makes more sense to dispatch one `reset_form` action rather than five separate `set_field` actions. If you log every action in a reducer, that log should be clear enough for you to reconstruct what interactions or responses happened in what order. This helps with debugging!
+* **Each action describes a single user interaction, even if that leads to multiple changes in the data.** For example, if a user presses "Reset" on a form with five fields managed by a reducer, it makes more sense to dispatch one `reset_form` action rather than five separate `set_field` actions. If you log every action in a reducer, that log should be clear enough for you to reconstruct what interactions or responses happened in what order. This helps with debugging!
 
 ## Writing concise reducers with Immer {/*writing-concise-reducers-with-immer*/}
 
@@ -925,7 +925,7 @@ function tasksReducer(draft, action) {
   }
 }
 
-export default function TaskBoard() {
+export default function TaskApp() {
   const [tasks, dispatch] = useImmerReducer(
     tasksReducer,
     initialTasks
@@ -1106,7 +1106,7 @@ Reducers must be pure, so they shouldn't mutate state. But Immer provides you wi
   3. Replace `useState` with `useReducer`.
 * Reducers require you to write a bit more code, but they help with debugging and testing.
 * Reducers must be pure.
-* Actions describe "what happened," not "what to do."
+* Each action describes a single user interaction.
 * Use Immer if you want to write reducers in a mutating style.
 
 </Recap>
@@ -1115,7 +1115,7 @@ Reducers must be pure, so they shouldn't mutate state. But Immer provides you wi
 
 <Challenges>
 
-### Dispatch actions from event handlers {/*dispatch-actions-from-event-handlers*/}
+#### Dispatch actions from event handlers {/*dispatch-actions-from-event-handlers*/}
 
 Currently, the event handlers in `ContactList.js` and `Chat.js` have `// TODO` comments. This is why typing into the input doesn't work, and clicking on the buttons doesn't change the selected recipient.
 
@@ -1467,7 +1467,7 @@ textarea {
 
 </Solution>
 
-### Clear the input on sending a message {/*clear-the-input-on-sending-a-message*/}
+#### Clear the input on sending a message {/*clear-the-input-on-sending-a-message*/}
 
 Currently, pressing "Send" doesn't do anything. Add an event handler to the "Send" button that will:
 
@@ -1970,7 +1970,7 @@ With either solution, it's important that you **don't** place the `alert` inside
 
 </Solution>
 
-### Restore input values when switching between tabs {/*restore-input-values-when-switching-between-tabs*/}
+#### Restore input values when switching between tabs {/*restore-input-values-when-switching-between-tabs*/}
 
 In this example, switching between different recipients always clears the text input:
 
@@ -2385,7 +2385,7 @@ Notably, you didn't need to change any of the event handlers to implement this d
 
 </Solution>
 
-### Implement `useReducer` from scratch {/*implement-usereducer-from-scratch*/}
+#### Implement `useReducer` from scratch {/*implement-usereducer-from-scratch*/}
 
 In the earlier examples, you imported the `useReducer` Hook from React. This time, you will implement *the `useReducer` Hook itself!* Here is a stub to get your started. It shouldn't take more than 10 lines of code.
 
