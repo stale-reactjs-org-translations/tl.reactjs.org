@@ -90,11 +90,6 @@ class Toggle extends React.Component {
     );
   }
 }
-
-ReactDOM.render(
-  <Toggle />,
-  document.getElementById('root')
-);
 ```
 
 [**Subukan sa CodePen**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
@@ -103,15 +98,18 @@ Kailangan mong maging maingat sa kahulugan ng `this` sa mga JSX callbacks. Sa Ja
 
 Hindi ito behavior na sa React lang matatagpuan, ito ay parte kung [paano gumagana ang functions sa Javascript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Kadalasan, kapag ikaw ay tumukoy ng method nang walang `()` kasunod nito, tulad ng `onClick={this.handleClick}`, kailangan mong ibind ang method na ito.
 
+<<<<<<< HEAD
 Kung ang pagtawag ng `bind` ay nakakainis para sayo, mayroong dalawang paraaan para matakasan ito. Kung ginagamit mo ang experimental [public class fields syntax](https://babeljs.io/docs/plugins/transform-class-properties/), pwede mong gamitin ang mga class fields upang tamang ibind ang callbacks.
+=======
+If calling `bind` annoys you, there are two ways you can get around this. You can use [public class fields syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields) to correctly bind callbacks:
+>>>>>>> 1a641bb88e647186f260dd2a8e56f0b083f2e46b
 
 ```js{2-6}
 class LoggingButton extends React.Component {
   // This syntax ensures `this` is bound within handleClick.
-  // Warning: this is *experimental* syntax.
   handleClick = () => {
     console.log('this is:', this);
-  }
+  };
 
   render() {
     return (
