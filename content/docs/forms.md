@@ -284,10 +284,10 @@ Specifying the `value` prop on a [controlled component](/docs/forms.html#control
 Ipinapakita ito ng sumusunod na code. (Ang input ay naka-lock sa una ngunit maaaring ma-edit ito pagkatapos ng isang maikling pagkaantala.)
 
 ```javascript
-ReactDOM.render(<input value="hi" />, mountNode);
+ReactDOM.createRoot(mountNode).render(<input value="hi" />);
 
 setTimeout(function() {
-  ReactDOM.render(<input value={null} />, mountNode);
+  ReactDOM.createRoot(mountNode).render(<input value={null} />);
 }, 1000);
 
 ```
