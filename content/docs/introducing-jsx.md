@@ -6,7 +6,20 @@ prev: hello-world.html
 next: rendering-elements.html
 ---
 
+<<<<<<< HEAD
 Mangyaring tingnan ang variable declaration na ito:
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Writing Markup with JSX](https://beta.reactjs.org/learn/writing-markup-with-jsx)
+> - [JavaScript in JSX with Curly Braces](https://beta.reactjs.org/learn/javascript-in-jsx-with-curly-braces)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+Consider this variable declaration:
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 ```js
 const element = <h1>Hello, world!</h1>;
@@ -35,11 +48,6 @@ Nag-declare tayo ng variable na `name` at inilagay natin ito sa JSX gamit ang mg
 ```js{1,2}
 const name = 'Josh Perez';
 const element = <h1>Hello, {name}</h1>;
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
 ```
 
 Maaaring maglagay ng kahit anong [JavaScript expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) na valid sa loob ng JSX; halimbawa nito ay `2 + 2`, `user.firstName`, o kaya naman ay `formatName(user)`.
@@ -61,14 +69,9 @@ const element = (
     Hello, {formatName(user)}!
   </h1>
 );
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
 ```
 
-[](codepen://introducing-jsx)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/PGEjdG?editors=1010)**
 
 Pinaghiwa-hiwalay natin ang JSX sa bawat linya para madali itong basahin. Nilagay rin natin sa loob ng mga ng mga panaklong (parenthesis) ang JSX. Hindi naman ito kailangan, ngunit naniniwala kami na maaaring maiwasan ang pagkalito dala ng [automatic semicolon insertion](https://stackoverflow.com/q/2846283) ng JavaScript.
 
@@ -92,7 +95,7 @@ function getGreeting(user) {
 Maaaring gamitin ang mga panipi (quotes) upang ipasa ang mga string bilang mga attribute:
 
 ```js
-const element = <div tabIndex="0"></div>;
+const element = <a href="https://www.reactjs.org"> link </a>;
 ```
 
 Maaari ring gamitin ang mga curly brace upang maglagay ng JavaScript expression para maging attribute:
