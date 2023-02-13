@@ -8,7 +8,17 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
+<<<<<<< HEAD
 Ang React, sa aming opinyon, ay nangunguna pagdating sa pagbuo ng malaki at mabilis na Web apps gamit ang Javascript na mabisa naming nagamit sa Facebook at Instagram.
+=======
+> Try the new React documentation.
+> 
+> The updated [Thinking in React](https://beta.reactjs.org/learn/thinking-in-react) guide teaches modern React and includes live examples.
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+React is, in our opinion, the premier way to build big, fast Web apps with JavaScript. It has scaled very well for us at Facebook and Instagram.
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 Isa sa malaking parte ng React ay kung paano ka magisip habang bumubuo ka ng apps. Sa dokyumentong ito, ipapakita namin sa inyo ang thought process sa pagbuo ng searchable product data table gamit ang React.
 
@@ -74,7 +84,11 @@ Upang makabuo ka ng static version ng app na magrerender ng iyong data model, gu
 
 Maari kang bumuo top-down or bottom-up. Yan ay, maaari kang magsimulang bumuo ng mga components pababa sa hierarchy (i.e. umpisa sa `FilterableProductTable`) o ang mga mas mabababa pa dito (`ProductRow`). Sa simpleng halimbawa, mas madali ang magsimula sa taas papuntang baba (top-down), at sa malalaking proyekto, mas madali namang magsimula sa baba papuntang taas (bottom-up) at magsulat ng tests habang ikaw ay bumubuo ng proyekto.
 
+<<<<<<< HEAD
 Sa pagtatapos ng hakbang na ito, magkakaroon ka na ng library ng reusable components na magrerender ng iyong data model. Ang mga components ay mayroon lamang na `render()` methods dahil ito ay static version ng iyong app. Ang mga component sa taas ng iyong hierarchy (`FilterableProductTable`) ay tatanggap ng iyong data model sa pamamagitan ng prop. Kung babaguhin mo ang laman ng data model at tatawagin ulit ang `ReactDOM.render()`, ang UI ay mag-uupdate. Makikita mo kung paano mag-update ang iyong UI at kung saan may mangyayaring pagbabago. Ang **one-way data flow** ng React (tinatawag din bilang *one-way binding*) ay nagpapanatili ng pagiging modular at mabilis nito.
+=======
+At the end of this step, you'll have a library of reusable components that render your data model. The components will only have `render()` methods since this is a static version of your app. The component at the top of the hierarchy (`FilterableProductTable`) will take your data model as a prop. If you make a change to your underlying data model and call `root.render()` again, the UI will be updated. You can see how your UI is updated and where to make changes. React's **one-way data flow** (also called *one-way binding*) keeps everything modular and fast.
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 <<<<<<< HEAD
 Sumangguni sa [React docs](/docs/) kung kailangan mong i-execute ang hakbang na ito.
@@ -160,4 +174,8 @@ Isipin kung ano ang gusto nating mangyari. Nais nating masigurado na kapag binag
 
 ## At natapos din {#and-thats-it}
 
+<<<<<<< HEAD
 Sana naman ay nagbigay ito sayo ng kaliwanagan kung paano mag-isip sa pagbuo ng components at application gamit ang React. Habang ito ay pinapa-type ka ng mas marami kumpara sa iyong nakagawian, tandaan na ang nababasang code, at mas madaling basahin ang modular, na explicit na code. Sa pagsisimula mo nang pagbuo ng malaking library ng components, mas lalo mong mapapahalagahan ang explicitness at modularity, at gamit ang konsepto ng code reuse, ang iyong code ay mas lalong magiging maiksi. :D
+=======
+Hopefully, this gives you an idea of how to think about building components and applications with React. While it may be a little more typing than you're used to, remember that code is read far more often than it's written, and it's less difficult to read this modular, explicit code. As you start to build large libraries of components, you'll appreciate this explicitness and modularity, and with code reuse, your lines of code will start to shrink. :)
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
