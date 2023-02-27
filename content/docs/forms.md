@@ -10,8 +10,21 @@ redirect_from:
 ---
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Ang HTML form elements ay medyo iba kung gumana kumpara sa ibang DOM elements ng React, dahil natural na pinanatili ng form elements ang ilang internal state. Halimbawa, ang form na ito sa simpleng HTML ay tumatanggap ng isang name:
 =======
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [`<input>`](https://beta.reactjs.org/reference/react-dom/components/input)
+> - [`<select>`](https://beta.reactjs.org/reference/react-dom/components/select)
+> - [`<textarea>`](https://beta.reactjs.org/reference/react-dom/components/textarea)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+>>>>>>> b0ccb47f33e52315b0ec65edb9a49dc4910dd99c
 HTML form elements work a bit differently from other DOM elements in React, because form elements naturally keep some internal state. For example, this form in plain HTML accepts a single name:
 >>>>>>> 0057efa12c1aa2271ef80d7a84d622732bdfa85c
 
@@ -284,10 +297,10 @@ Specifying the `value` prop on a [controlled component](/docs/forms.html#control
 Ipinapakita ito ng sumusunod na code. (Ang input ay naka-lock sa una ngunit maaaring ma-edit ito pagkatapos ng isang maikling pagkaantala.)
 
 ```javascript
-ReactDOM.render(<input value="hi" />, mountNode);
+ReactDOM.createRoot(mountNode).render(<input value="hi" />);
 
 setTimeout(function() {
-  ReactDOM.render(<input value={null} />, mountNode);
+  ReactDOM.createRoot(mountNode).render(<input value={null} />);
 }, 1000);
 
 ```
